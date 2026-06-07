@@ -1,0 +1,2418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>★ STAR WARS — Cronología Transmedia Definitiva v8</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;900&family=Share+Tech+Mono&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold:#c9a84c; --gold-dim:#7a6130; --red:#c0392b; --red-dim:rgba(192,57,43,0.6);
+  --blue:#4a9edd; --green:#2ecc71; --orange:#e67e22;
+  --gray:#8899aa; --bg:#05080e; --bg2:#0a0f18; --bg3:#0f1520;
+  --border:rgba(201,168,76,0.18); --text:#ccd6e0; --text-dim:#5a6a7a;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Share Tech Mono',monospace;overflow-x:hidden;}
+
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    radial-gradient(1px 1px at 7% 12%,rgba(255,255,255,.65) 0%,transparent 100%),
+    radial-gradient(1px 1px at 19% 58%,rgba(255,255,255,.4) 0%,transparent 100%),
+    radial-gradient(1px 1px at 35% 7%,rgba(255,255,255,.55) 0%,transparent 100%),
+    radial-gradient(1px 1px at 52% 74%,rgba(255,255,255,.3) 0%,transparent 100%),
+    radial-gradient(1px 1px at 66% 33%,rgba(255,255,255,.6) 0%,transparent 100%),
+    radial-gradient(1px 1px at 79% 89%,rgba(255,255,255,.4) 0%,transparent 100%),
+    radial-gradient(1px 1px at 91% 18%,rgba(255,255,255,.5) 0%,transparent 100%),
+    radial-gradient(1px 1px at 13% 94%,rgba(255,255,255,.35) 0%,transparent 100%),
+    radial-gradient(1px 1px at 44% 47%,rgba(255,255,255,.45) 0%,transparent 100%),
+    radial-gradient(1px 1px at 73% 62%,rgba(255,255,255,.5) 0%,transparent 100%),
+    radial-gradient(2px 2px at 31% 26%,rgba(201,168,76,.22) 0%,transparent 100%),
+    radial-gradient(2px 2px at 61% 80%,rgba(74,158,221,.18) 0%,transparent 100%);
+}
+
+/* ══ HEADER ══ */
+.hdr{position:relative;text-align:center;padding:68px 20px 48px;background:linear-gradient(180deg,rgba(201,168,76,.07) 0%,transparent 100%);border-bottom:1px solid var(--border);z-index:1;overflow:hidden;}
+.hdr::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:50%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+.hdr-eye{font-family:'Orbitron',sans-serif;font-size:.52rem;letter-spacing:.55em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:12px;animation:fu .8s ease both;}
+.hdr h1{font-family:'Orbitron',sans-serif;font-size:clamp(2rem,8.5vw,5.2rem);font-weight:900;color:var(--gold);letter-spacing:.06em;text-shadow:0 0 50px rgba(201,168,76,.38),0 0 100px rgba(201,168,76,.12);line-height:1;animation:fu 1s ease both;}
+.hdr-sub{font-family:'Crimson Pro',serif;font-style:italic;font-size:1rem;color:var(--gray);margin-top:9px;letter-spacing:.04em;animation:fu 1.2s ease both;}
+.hdr-badge{display:inline-block;font-family:'Orbitron',sans-serif;font-size:.48rem;padding:3px 11px;border:1px solid rgba(46,204,113,.32);color:rgba(46,204,113,.72);letter-spacing:.25em;margin-top:11px;animation:fu 1.3s ease both;}
+.hdr-stats{display:flex;justify-content:center;gap:32px;margin-top:26px;flex-wrap:wrap;animation:fu 1.4s ease both;}
+.stat{text-align:center;}
+.stat-n{font-family:'Orbitron',sans-serif;font-size:1.6rem;font-weight:600;color:var(--gold);}
+.stat-l{font-size:.58rem;color:var(--text-dim);letter-spacing:.15em;text-transform:uppercase;margin-top:2px;}
+
+/* ══ CONTROLS ══ */
+.ctrl{position:sticky;top:0;z-index:100;background:rgba(5,8,14,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:10px 14px 8px;display:flex;gap:5px;flex-wrap:wrap;align-items:center;justify-content:center;}
+.btn{font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:.07em;padding:5px 11px;border:1px solid var(--border);background:transparent;color:var(--text-dim);cursor:pointer;transition:all .17s;text-transform:uppercase;}
+.btn:hover,.btn.on{border-color:var(--gold);color:var(--gold);background:rgba(201,168,76,.08);}
+.btn.all.on{background:rgba(201,168,76,.13);}
+.btn.esen.on{border-color:var(--red);color:var(--red);background:rgba(192,57,43,.08);}
+.btn.sync.on{border-color:var(--blue);color:var(--blue);background:rgba(74,158,221,.08);}
+.pbar{width:100%;height:2px;background:rgba(201,168,76,.07);margin-top:7px;}
+.pfill{height:100%;background:linear-gradient(90deg,var(--gold-dim),var(--gold));transition:width .35s ease;width:0%;}
+.ptxt{font-size:.56rem;color:var(--text-dim);margin-top:3px;text-align:center;letter-spacing:.1em;}
+
+/* ══ LAYOUT ══ */
+.wrap{max-width:920px;margin:0 auto;padding:0 14px 80px;position:relative;z-index:1;}
+
+/* ══ ERA ══ */
+.era{margin-top:52px;}
+.era-hdr{padding:20px 24px;border-left:3px solid var(--gold);background:linear-gradient(90deg,rgba(201,168,76,.07) 0%,transparent 62%);position:relative;overflow:hidden;margin-bottom:4px;}
+.era-hdr::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--gold),transparent 58%);}
+.era-hdr::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,rgba(201,168,76,.2),transparent 58%);}
+.era-lbl{font-family:'Orbitron',sans-serif;font-size:.48rem;letter-spacing:.4em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:4px;}
+.era-ttl{font-family:'Orbitron',sans-serif;font-size:clamp(.95rem,2.8vw,1.4rem);font-weight:600;color:var(--gold);letter-spacing:.04em;}
+.era-yrs{font-family:'Crimson Pro',serif;font-style:italic;color:var(--gray);font-size:.85rem;margin-top:3px;}
+.era-dsc{font-family:'Crimson Pro',serif;color:var(--text-dim);font-size:.78rem;margin-top:5px;line-height:1.5;}
+
+/* ══ FASE ══ */
+.fase{margin:24px 0 4px;padding:6px 14px 6px 12px;border-left:2px solid rgba(201,168,76,.22);display:flex;align-items:baseline;gap:10px;}
+.fase-ttl{font-family:'Orbitron',sans-serif;font-size:.58rem;letter-spacing:.2em;color:var(--gold-dim);text-transform:uppercase;}
+.fase-yrs{font-family:'Crimson Pro',serif;font-style:italic;font-size:.72rem;color:var(--text-dim);}
+
+/* ══ ARCO ══ */
+.arco{margin:16px 0 4px;padding:5px 0 5px 12px;border-left:1px solid rgba(201,168,76,.15);display:flex;align-items:baseline;gap:8px;}
+.arco-ttl{font-family:'Crimson Pro',serif;font-style:italic;font-size:.82rem;color:rgba(201,168,76,.55);letter-spacing:.03em;}
+
+/* ══ EPISODIO ══ */
+.ep{display:grid;grid-template-columns:20px 36px 1fr auto;gap:0 10px;align-items:start;padding:9px 12px;border-bottom:1px solid rgba(255,255,255,.035);cursor:pointer;transition:background .13s;position:relative;}
+.ep:hover{background:rgba(201,168,76,.032);border-bottom-color:rgba(201,168,76,.1);}
+.ep.done{opacity:.38;}
+.ep.done .ep-ttl{text-decoration:line-through;text-decoration-color:var(--gold-dim);}
+.ep.hidden{display:none;}
+
+/* Checkbox */
+.chk{width:14px;height:14px;border:1px solid rgba(201,168,76,.22);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:3px;transition:all .17s;flex-shrink:0;}
+.ep:hover .chk{border-color:var(--gold-dim);}
+.ep.done .chk{background:rgba(201,168,76,.18);border-color:var(--gold);}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--gold);opacity:0;transition:opacity .17s;}
+.ep.done .dot{opacity:1;}
+
+/* ID */
+.ep-id{font-family:'Orbitron',sans-serif;font-size:.52rem;color:var(--text-dim);padding-top:3px;text-align:right;}
+
+/* Body */
+.ep-body{}
+.ep-row1{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap;margin-bottom:3px;}
+.ep-code{font-size:.62rem;color:var(--blue);letter-spacing:.06em;flex-shrink:0;}
+.ep-ttl{font-size:.84rem;color:var(--text);line-height:1.3;}
+.ep-yr{font-family:'Crimson Pro',serif;font-style:italic;font-size:.68rem;color:var(--text-dim);white-space:nowrap;}
+.ep-planet{font-size:.68rem;color:var(--text-dim);margin-bottom:2px;}
+.ep-planet span{color:rgba(74,158,221,.6);margin-right:4px;}
+.ep-evt{font-family:'Crimson Pro',serif;font-size:.78rem;color:var(--text-dim);line-height:1.5;}
+.ep-note{font-family:'Crimson Pro',serif;font-style:italic;font-size:.72rem;color:rgba(201,168,76,.55);margin-top:3px;}
+
+/* Format tag */
+.fmt{font-size:.54rem;padding:2px 6px;border:1px solid;align-self:start;margin-top:3px;letter-spacing:.06em;white-space:nowrap;flex-shrink:0;}
+.f-film{border-color:var(--gold);color:var(--gold);}
+.f-live{border-color:var(--blue);color:var(--blue);}
+.f-anim{border-color:rgba(74,158,221,.42);color:rgba(74,158,221,.62);}
+.f-short{border-color:rgba(201,168,76,.32);color:rgba(201,168,76,.52);}
+
+/* Priority */
+.pri{display:inline-block;font-size:.48rem;padding:1px 5px;margin-right:5px;letter-spacing:.07em;vertical-align:middle;}
+.pe{background:rgba(192,57,43,.16);color:#e05c4a;border:1px solid rgba(192,57,43,.32);}
+.pi{background:rgba(230,126,34,.1);color:#e08c3a;border:1px solid rgba(230,126,34,.26);}
+.po{background:rgba(136,153,170,.07);color:var(--gray);border:1px solid rgba(136,153,170,.16);}
+
+/* ══ SYNC EVENT (macroevento) ══ */
+.sync-ev{margin:8px 0;padding:10px 14px;background:rgba(74,158,221,.04);border:1px solid rgba(74,158,221,.18);position:relative;cursor:pointer;transition:background .15s;}
+.sync-ev:hover{background:rgba(74,158,221,.07);}
+.sync-ev-hdr{display:flex;align-items:center;gap:10px;}
+.sync-gem{width:10px;height:10px;background:var(--blue);transform:rotate(45deg);flex-shrink:0;animation:spulse 2.5s infinite;}
+@keyframes spulse{0%,100%{box-shadow:0 0 8px rgba(74,158,221,.45)}50%{box-shadow:0 0 16px rgba(74,158,221,.8),0 0 32px rgba(74,158,221,.2)}}
+.sync-ev-ttl{font-family:'Orbitron',sans-serif;font-size:.65rem;color:var(--blue);letter-spacing:.14em;text-transform:uppercase;}
+.sync-ev-sub{font-family:'Crimson Pro',serif;font-style:italic;font-size:.75rem;color:var(--text-dim);margin-top:2px;}
+.sync-body{display:none;padding:10px 0 4px;}
+.sync-body.open{display:block;}
+.sync-step{display:grid;grid-template-columns:26px 1fr;gap:8px;padding:7px 10px;background:rgba(0,0,0,.22);border-left:2px solid transparent;margin-bottom:5px;transition:border-color .14s;}
+.sync-step:hover{border-left-color:var(--blue);}
+.sync-step.sub{border-left:2px solid rgba(74,158,221,.3);background:rgba(74,158,221,.05);margin-left:14px;}
+.sync-step.sub:hover{border-left-color:var(--blue);}
+.ss-n{font-family:'Orbitron',sans-serif;font-size:.62rem;color:var(--blue);font-weight:600;padding-top:1px;}
+.ss-what{color:var(--gold);font-size:.78rem;font-weight:600;margin-bottom:2px;}
+.ss-desc{color:var(--text-dim);font-size:.7rem;font-family:'Crimson Pro',serif;font-style:italic;line-height:1.5;}
+.frentes-lbl{font-family:'Orbitron',sans-serif;font-size:.5rem;color:var(--blue);letter-spacing:.22em;padding:6px 10px 2px;opacity:.6;}
+.sync-foot{padding:8px 14px;border-top:1px solid rgba(74,158,221,.15);font-size:.64rem;color:rgba(74,158,221,.58);letter-spacing:.04em;}
+.sync-ev.hidden{display:none;}
+
+/* ══ NODO CRÍTICO ══ */
+.nodo{margin:10px 0;border:1px solid rgba(192,57,43,.42);background:rgba(192,57,43,.03);position:relative;overflow:hidden;cursor:pointer;}
+.nodo::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--red),transparent);}
+.nodo.hidden{display:none;}
+.nodo-hdr{padding:13px 16px;border-bottom:1px solid rgba(192,57,43,.16);display:flex;align-items:center;gap:11px;}
+.nodo-gem{width:11px;height:11px;background:var(--red);transform:rotate(45deg);flex-shrink:0;animation:npulse 2s infinite;}
+@keyframes npulse{0%,100%{box-shadow:0 0 10px rgba(192,57,43,.5)}50%{box-shadow:0 0 20px rgba(192,57,43,.85),0 0 40px rgba(192,57,43,.25)}}
+.nodo-ttl{font-family:'Orbitron',sans-serif;font-size:.68rem;color:var(--red);letter-spacing:.15em;text-transform:uppercase;}
+.nodo-sub{font-family:'Crimson Pro',serif;font-style:italic;color:var(--gray);font-size:.8rem;margin-top:2px;}
+.nodo-body{display:none;padding:13px 16px;flex-direction:column;gap:6px;}
+.nodo-body.open{display:flex;}
+.nstep{display:grid;grid-template-columns:26px 1fr;gap:8px;padding:8px 10px;background:rgba(0,0,0,.25);border-left:2px solid transparent;transition:border-color .14s;}
+.nstep:hover{border-left-color:var(--red);}
+.nstep.sub{border-left:2px solid rgba(192,57,43,.35);background:rgba(192,57,43,.05);margin-left:14px;}
+.nstep.sub:hover{border-left-color:var(--red);}
+.ns-n{font-family:'Orbitron',sans-serif;font-size:.62rem;color:var(--red);font-weight:600;padding-top:1px;}
+.ns-what{color:var(--gold);font-size:.78rem;font-weight:600;margin-bottom:2px;}
+.ns-desc{color:var(--text-dim);font-size:.7rem;font-family:'Crimson Pro',serif;font-style:italic;line-height:1.5;}
+.nfrentes{font-family:'Orbitron',sans-serif;font-size:.5rem;color:var(--red);letter-spacing:.22em;padding:6px 10px 2px;opacity:.62;}
+.nodo-foot{padding:8px 16px;border-top:1px solid rgba(192,57,43,.16);font-size:.64rem;color:rgba(192,57,43,.6);letter-spacing:.04em;}
+
+/* ══ INLINE NOTES ══ */
+.note{margin:3px 0;padding:7px 14px;font-family:'Crimson Pro',serif;font-style:italic;font-size:.75rem;line-height:1.5;}
+.note-g{background:rgba(46,204,113,.04);border-left:2px solid rgba(46,204,113,.28);color:rgba(46,204,113,.68);}
+.note-r{background:rgba(192,57,43,.04);border-left:2px solid rgba(192,57,43,.28);color:rgba(192,57,43,.68);}
+.note-o{background:rgba(230,126,34,.04);border-left:2px solid rgba(230,126,34,.28);color:rgba(230,126,34,.72);}
+.note.hidden{display:none;}
+
+/* ══ SYNC TABLE ══ */
+.stbl{margin:10px 0;border:1px solid rgba(74,158,221,.16);background:rgba(74,158,221,.02);overflow:hidden;}
+.stbl.hidden{display:none;}
+.stbl-hdr{padding:10px 14px;background:rgba(74,158,221,.05);border-bottom:1px solid rgba(74,158,221,.1);}
+.stbl-ttl{font-family:'Orbitron',sans-serif;font-size:.6rem;color:var(--blue);letter-spacing:.14em;text-transform:uppercase;}
+.stbl-sub{font-family:'Crimson Pro',serif;font-style:italic;font-size:.75rem;color:var(--text-dim);margin-top:2px;}
+.stbl-row{display:grid;grid-template-columns:54px 1fr 1fr;border-bottom:1px solid rgba(74,158,221,.06);}
+.stbl-row:last-child{border-bottom:none;}
+.stbl-row.ch{background:rgba(74,158,221,.04);}
+.stbl-yr{padding:8px 9px;font-family:'Orbitron',sans-serif;font-size:.58rem;color:var(--blue);border-right:1px solid rgba(74,158,221,.09);display:flex;align-items:center;}
+.stbl-c{padding:8px 11px;font-size:.7rem;color:var(--text-dim);line-height:1.4;border-right:1px solid rgba(74,158,221,.06);}
+.stbl-c:last-child{border-right:none;}
+.stbl-c b{color:var(--text);display:block;margin-bottom:1px;}
+.stbl-c i{color:var(--gold-dim);font-size:.65rem;display:block;margin-top:2px;}
+.stbl-row.ch .stbl-c{font-family:'Share Tech Mono',monospace;font-size:.58rem;letter-spacing:.1em;color:var(--blue);text-transform:uppercase;}
+
+/* ══ SPLIT BOX ══ */
+.split{margin:5px 0;padding:9px 14px;background:rgba(230,126,34,.04);border-left:2px solid rgba(230,126,34,.28);}
+.split.hidden{display:none;}
+.split-ttl{font-family:'Share Tech Mono',monospace;font-size:.6rem;color:var(--orange);letter-spacing:.1em;margin-bottom:3px;}
+.split-body{font-family:'Crimson Pro',serif;font-size:.78rem;color:rgba(230,126,34,.72);line-height:1.5;}
+
+/* ══ FOOTER ══ */
+.ftr{text-align:center;padding:38px 20px;border-top:1px solid var(--border);font-size:.6rem;color:var(--text-dim);letter-spacing:.08em;}
+.ftr-force{font-family:'Orbitron',sans-serif;font-size:.82rem;color:var(--gold-dim);margin-bottom:8px;}
+
+@keyframes fu{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
+::-webkit-scrollbar{width:3px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:var(--gold-dim);}
+
+@media(max-width:560px){
+  .ep{grid-template-columns:16px 30px 1fr auto;gap:0 7px;padding:8px 10px;}
+  .stbl-row{grid-template-columns:40px 1fr 1fr;}
+  .nstep.sub,.sync-step.sub{margin-left:8px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ HEADER ═══════════════ -->
+<header class="hdr">
+  <div class="hdr-eye">Canon Audiovisual Completo · Disney+ · Base de Datos Transmedia</div>
+  <h1>★ STAR WARS ★</h1>
+  <div class="hdr-sub">Cronología Transmedia Definitiva · Era → Fase → Arco → Episodio</div>
+  <div class="hdr-badge">v8 · Junio 2026</div>
+  <div class="hdr-stats">
+    <div class="stat"><div class="stat-n">8</div><div class="stat-l">Eras galácticas</div></div>
+    <div class="stat"><div class="stat-n">202</div><div class="stat-l">Entradas</div></div>
+    <div class="stat"><div class="stat-n">~130h</div><div class="stat-l">Contenido total</div></div>
+    <div class="stat"><div class="stat-n" id="pct">0%</div><div class="stat-l">Completado</div></div>
+  </div>
+</header>
+
+<!-- ═══════════════ CONTROLS ═══════════════ -->
+<div class="ctrl">
+  <button class="btn all on" onclick="fEra('all',this)">TODO</button>
+  <button class="btn" onclick="fEra('I',this)">I · Alta República</button>
+  <button class="btn" onclick="fEra('II',this)">II · Caída</button>
+  <button class="btn" onclick="fEra('III',this)">III · Guerras Clon</button>
+  <button class="btn" onclick="fEra('IV',this)">IV · Imperio</button>
+  <button class="btn" onclick="fEra('V',this)">V · Rebelión</button>
+  <button class="btn" onclick="fEra('VI',this)">VI · Trilogía OG</button>
+  <button class="btn" onclick="fEra('VII',this)">VII · Nueva República</button>
+  <button class="btn" onclick="fEra('VIII',this)">VIII · Primera Orden</button>
+  <button class="btn esen" onclick="fPri()">Solo Esenciales</button>
+  <button class="btn sync" onclick="fSync()">Macroventos</button>
+  <div class="pbar" style="width:100%"><div class="pfill" id="pf"></div></div>
+  <div class="ptxt" id="pt">0 / 0 completados</div>
+</div>
+
+<div class="wrap">
+
+<!-- ══════════════════════════════════════════
+     ERA I · AMANECER DE LA REPÚBLICA
+══════════════════════════════════════════ -->
+<div class="era" data-era="I">
+<div class="era-hdr">
+  <div class="era-lbl">Era I · -232 BBY a -132 BBY</div>
+  <div class="era-ttl">Amanecer de la República</div>
+  <div class="era-yrs">~232 BBY – ~132 BBY</div>
+  <div class="era-dsc">El apogeo de la Orden Jedi. La Alta República en su esplendor. Primeras fisuras en la periferia galáctica.</div>
+</div>
+
+<div class="fase" data-era="I"><span class="fase-ttl">Fase Única · El Esplendor Jedi</span><span class="fase-yrs">~232 – ~132 BBY</span></div>
+<div class="arco" data-era="I"><span class="arco-ttl">Apogeo de la Alta República</span></div>
+
+<div class="ep" data-era="I" data-pri="o" data-id="1" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div>
+  <div class="ep-id">001</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri po">OPCIONAL</span><span class="ep-code">YJA S1-S2</span><span class="ep-ttl">Young Jedi Adventures — Temporadas 1 y 2</span><span class="ep-yr">~232 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Tenoo / Starlight Beacon</div>
+    <div class="ep-evt">Entrenamiento de iniciados Jedi. La República en su cúspide — contraste total con la caída que vendrá.</div>
+  </div>
+  <div class="fmt f-anim">ANIMADA</div>
+</div>
+
+<div class="ep" data-era="I" data-pri="e" data-id="2" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div>
+  <div class="ep-id">002</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">ACOL S1E1-8</span><span class="ep-ttl">The Acolyte — Temporada 1 completa</span><span class="ep-yr">~132 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Brendok · Khofar · Coruscant</div>
+    <div class="ep-evt">El surgimiento de fuerzas oscuras y la conspiración en Brendok. Primeras grietas institucionales en la Orden Jedi.</div>
+  </div>
+  <div class="fmt f-live">LIVE-ACTION</div>
+</div>
+</div><!-- /era I -->
+
+<!-- ══════════════════════════════════════════
+     ERA II · CAÍDA DE LA REPÚBLICA
+══════════════════════════════════════════ -->
+<div class="era" data-era="II">
+<div class="era-hdr">
+  <div class="era-lbl">Era II · -58 BBY a -32 BBY</div>
+  <div class="era-ttl">Caída de la República</div>
+  <div class="era-yrs">~58 BBY – ~32 BBY</div>
+  <div class="era-dsc">La decadencia del Senado. La manipulación Sith en silencio. Dos hombres —Dooku y Cad Bane— toman caminos que definirán la galaxia.</div>
+</div>
+
+<div class="fase" data-era="II"><span class="fase-ttl">Fase Única · Semillas de la Oscuridad</span><span class="fase-yrs">~58 – ~32 BBY</span></div>
+<div class="arco" data-era="II"><span class="arco-ttl">El Origen de Cad Bane</span></div>
+
+<div class="ep" data-era="II" data-pri="i" data-id="3" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div>
+  <div class="ep-id">003</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TotU S1E4</span><span class="ep-ttl">"The Good Life"</span><span class="ep-yr">~58 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Tatooine</div>
+    <div class="ep-evt">Cad Bane de niño se asocia con delincuentes locales para sobrevivir en los márgenes de Tatooine.</div>
+  </div>
+  <div class="fmt f-short">ANTOLOGÍA</div>
+</div>
+
+<div class="arco" data-era="II"><span class="arco-ttl">La Duda de Dooku · El Nacimiento de Ahsoka</span></div>
+
+<div class="ep" data-era="II" data-pri="e" data-id="4" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div>
+  <div class="ep-id">004</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TotJ S1E2</span><span class="ep-ttl">"Justice"</span><span class="ep-yr">~58 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Bri'n</div>
+    <div class="ep-evt">Dooku y su Padawan Qui-Gon Jinn enfrentan al corrupto Senador Dagonet. Dooku comienza a perder la fe en la República.</div>
+  </div>
+  <div class="fmt f-short">ANTOLOGÍA</div>
+</div>
+
+<div class="ep" data-era="II" data-pri="i" data-id="5" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div>
+  <div class="ep-id">005</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TotJ S1E1</span><span class="ep-ttl">"Life and Death"</span><span class="ep-yr">~46 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Shili</div>
+    <div class="ep-evt">Nacimiento de Ahsoka Tano y descubrimiento de su sensibilidad a la Fuerza en la tribu Togruta.</div>
+  </div>
+  <div class="fmt f-short">ANTOLOGÍA</div>
+</div>
+
+<div class="ep" data-era="II" data-pri="i" data-id="6" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div>
+  <div class="ep-id">006</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TotU S1E5</span><span class="ep-ttl">"A Good Turn"</span><span class="ep-yr">~40 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Outer Rim</div>
+    <div class="ep-evt">Cad Bane adolescente realiza sus primeras misiones de contrabando y perfecciona su técnica.</div>
+  </div>
+  <div class="fmt f-short">ANTOLOGÍA</div>
+</div>
+
+<div class="ep" data-era="II" data-pri="e" data-id="7" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div>
+  <div class="ep-id">007</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TotJ S1E3</span><span class="ep-ttl">"Choices"</span><span class="ep-yr">~40 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Raxus Secundus</div>
+    <div class="ep-evt">Dooku y Mace Windu investigan el deceso de la Maestra Jedi Katri. La burocracia de la República protege al culpable.</div>
+  </div>
+  <div class="fmt f-short">ANTOLOGÍA</div>
+</div>
+
+<div class="ep" data-era="II" data-pri="i" data-id="8" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div>
+  <div class="ep-id">008</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TotU S1E6</span><span class="ep-ttl">"One Good Deed"</span><span class="ep-yr">~33 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Outer Rim</div>
+    <div class="ep-evt">Cad Bane adulto consolida su estilo de caza antes de formar su equipo clásico.</div>
+  </div>
+  <div class="fmt f-short">ANTOLOGÍA</div>
+</div>
+
+<div class="arco" data-era="II"><span class="arco-ttl">La Amenaza Fantasma · La Caída de Dooku</span></div>
+
+<div class="ep" data-era="II" data-pri="e" data-id="9" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div>
+  <div class="ep-id">009</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">EP I</span><span class="ep-ttl">La Amenaza Fantasma</span><span class="ep-yr">32 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Naboo · Tatooine · Coruscant</div>
+    <div class="ep-evt">Bloqueo de Naboo. Descubrimiento de Anakin Skywalker. Muerte de Qui-Gon Jinn. El inicio del ascenso de Palpatine.</div>
+  </div>
+  <div class="fmt f-film">PELÍCULA</div>
+</div>
+
+<div class="ep" data-era="II" data-pri="e" data-id="10" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div>
+  <div class="ep-id">010</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TotJ S1E4</span><span class="ep-ttl">"The Sith Lord"</span><span class="ep-yr">32 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Coruscant (Archivos Jedi)</div>
+    <div class="ep-evt">Dooku elimina el registro de Kamino y ejecuta a la Maestra Yaddle. Ver inmediatamente después de Ep. I.</div>
+    <div class="ep-note">⟶ Ver tras Episodio I — solo tiene peso habiendo vivido la muerte de Qui-Gon</div>
+  </div>
+  <div class="fmt f-short">ANTOLOGÍA</div>
+</div>
+</div><!-- /era II -->
+
+<!-- ══════════════════════════════════════════
+     ERA III · LAS GUERRAS CLON
+══════════════════════════════════════════ -->
+<div class="era" data-era="III">
+<div class="era-hdr">
+  <div class="era-lbl">Era III · 22 BBY a 19 BBY</div>
+  <div class="era-ttl">Las Guerras Clon</div>
+  <div class="era-yrs">22 BBY – 19 BBY</div>
+  <div class="era-dsc">Tres años de guerra galáctica. El ascenso de Ahsoka Tano. La corrupción de Anakin Skywalker. El chip que lo destruirá todo.</div>
+</div>
+
+<div class="fase" data-era="III"><span class="fase-ttl">Año 1 de la Guerra</span><span class="fase-yrs">22 BBY</span></div>
+<div class="arco" data-era="III"><span class="arco-ttl">La Apertura del Conflicto · La Llegada de Ahsoka</span></div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="11" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">011</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">EP II</span><span class="ep-ttl">El Ataque de los Clones</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Geonosis · Tatooine · Coruscant</div>
+    <div class="ep-evt">Inicio oficial de las Guerras Clon. Anakin y Padmé. El ejército clon que nadie pidió.</div>
+  </div><div class="fmt f-film">PELÍCULA</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="12" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">012</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S2E16</span><span class="ep-ttl">"Cat and Mouse"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Christophsis</div>
+    <div class="ep-evt">Preludio espacial inmediato antes del despliegue en tierra. Anakin usa un destructor estelar de sigilo.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="13" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">013</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S1E16</span><span class="ep-ttl">"Hidden Enemy"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Christophsis</div>
+    <div class="ep-evt">Conspiración y traición de un sargento clon. Precede directamente a la llegada de Ahsoka.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="14" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">014</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW FILM</span><span class="ep-ttl">The Clone Wars — Película Piloto</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Christophsis · Teth · Tatooine</div>
+    <div class="ep-evt">Ahsoka Tano es asignada como Padawan de Anakin Skywalker. El primer día de una relación que definirá a ambos.</div>
+  </div><div class="fmt f-anim">ANIMADA</div>
+</div>
+
+<div class="arco" data-era="III"><span class="arco-ttl">El Escuadrón Domino · El Bloqueo de Ryloth</span></div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="15" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">015</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S3E1</span><span class="ep-ttl">"Clone Cadets"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Kamino</div>
+    <div class="ep-evt">Formación militar y desarrollo del Escuadrón Domino. Los cadetes que serán héroes — y los que no sobrevivirán.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="16" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">016</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S3E3</span><span class="ep-ttl">"Supply Lines"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Ryloth · Toydaria</div>
+    <div class="ep-evt">Resistencia del Maestro Ima-Gun Di y el bloqueo diplomático de Ryloth. Sacrificio memorable.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="arco" data-era="III"><span class="arco-ttl">Yoda en Rugosa · La Superarma de Grievous</span></div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="17" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">017</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S1E1</span><span class="ep-ttl">"Ambush"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Rugosa</div>
+    <div class="ep-evt">El Maestro Yoda solo contra un ejército entero para convencer al Rey Katuunko de unirse a la República.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="18" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">018</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S1E2</span><span class="ep-ttl">"Rising Malevolence"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Abregado</div>
+    <div class="ep-evt">Primera prueba del destructor iónico del General Grievous. La superarma amenaza las rutas médicas.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="19" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">019</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S1E3</span><span class="ep-ttl">"Shadow of Malevolence"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Sector Ryndellia</div>
+    <div class="ep-evt">Bombardeo aliado sobre el crucero pesado separatista. Anakin planea un ataque quirúrgico.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="20" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">020</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S1E4</span><span class="ep-ttl">"Destroy Malevolence"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Antar (Espacio)</div>
+    <div class="ep-evt">Infiltración espacial de Anakin y Obi-Wan. Rescate de Padmé. Destrucción de la superarma.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="arco" data-era="III"><span class="arco-ttl">Rookies · La Invasión de Kamino</span></div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="21" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">021</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S1E5</span><span class="ep-ttl">"Rookies"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Luna de Rishi</div>
+    <div class="ep-evt">Invasión droide frustrada por clones novatos en la base de vigilancia. El episodio que redefinió la serie.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="22" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">022</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S3E2</span><span class="ep-ttl">"ARC Troopers"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Kamino</div>
+    <div class="ep-evt">Defensa terrestre de Ciudad Tipoca. Grievous vs Shaak Ti. Ascenso de Echo y Fives.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="arco" data-era="III"><span class="arco-ttl">R2-D2 Perdido · Hondo y Dooku</span></div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="23" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">023</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S1E6</span><span class="ep-ttl">"Downfall of a Droid"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Ruusan III</div>
+    <div class="ep-evt">R2-D2 se pierde en una batalla espacial. Anakin se niega a reemplazarlo.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="24" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">024</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S1E7</span><span class="ep-ttl">"Duel of the Droids"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Estación Skytop</div>
+    <div class="ep-evt">Infiltración Jedi para rescatar al astromecánico. R2 vs R3-S6.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="o" data-id="25" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">025</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri po">OPCIONAL</span><span class="ep-code">TCW S1E8</span><span class="ep-ttl">"Bombad Jedi"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Rodia</div>
+    <div class="ep-evt">Jar Jar Binks como héroe accidental. Captura del Virrey Nute Gunray.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="26" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">026</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S1E9</span><span class="ep-ttl">"Cloak of Darkness"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Crucero de la República</div>
+    <div class="ep-evt">Ahsoka y Luminara defienden el transporte ante Asajj Ventress. Traición interna.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="27" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">027</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S1E10</span><span class="ep-ttl">"Lair of Grievous"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Vassek 3</div>
+    <div class="ep-evt">Kit Fisto descubre el trágico pasado del cyborg separatista. El origen de lo que Grievous llegó a ser.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="28" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">028</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S1E11</span><span class="ep-ttl">"Dooku Captured"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Florrum</div>
+    <div class="ep-evt">El Sindicato de Hondo Ohnaka aprisiona al Conde Dooku. Introducción de Hondo.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="29" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">029</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S1E12</span><span class="ep-ttl">"The Gungan General"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Florrum</div>
+    <div class="ep-evt">Alianza desesperada de Anakin, Obi-Wan y Dooku para escapar juntos de los piratas.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="30" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">030</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S1E13</span><span class="ep-ttl">"Jedi Crash"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Maridun</div>
+    <div class="ep-evt">Accidente espacial. Anakin herido de gravedad. Aayla Secura toma el mando.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="31" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">031</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S1E14</span><span class="ep-ttl">"Defenders of Peace"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Maridun</div>
+    <div class="ep-evt">Defensa de los pacíficos Lurmen. Conflicto filosófico sobre el pacifismo ante el avance droide.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="o" data-id="32" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">032</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri po">OPCIONAL</span><span class="ep-code">TCW S1E15</span><span class="ep-ttl">"Trespass"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Orto Plutonia</div>
+    <div class="ep-evt">Conflicto territorial entre los nativos Talz y la soberanía de Pantora. Política local.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="arco" data-era="III"><span class="arco-ttl">El Robo del Holocrón · Cad Bane en el Senado</span></div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="33" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">033</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S2E1</span><span class="ep-ttl">"Holocron Heist"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Coruscant</div>
+    <div class="ep-evt">Cad Bane se infiltra en los Archivos del Templo Jedi y roba el holocrón de los niños sensibles.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="34" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">034</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S2E2</span><span class="ep-ttl">"Cargo of Doom"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Crucero Separatista</div>
+    <div class="ep-evt">Ahsoka Tano es tomada como rehén para forzar la entrega del holocrón.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="35" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">035</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S2E3</span><span class="ep-ttl">"Children of the Force"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Coruscant · Naboo · Mustafar</div>
+    <div class="ep-evt">Operación encubierta de Palpatine para criar niños sensibles a la Fuerza. Palpatine revelado como arquitecto.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="36" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">036</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S2E4</span><span class="ep-ttl">"Senate Spy"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Coruscant · Cato Neimoidia</div>
+    <div class="ep-evt">Padmé investiga al político corrupto Rush Clovis. Tensiones entre Anakin y Padmé.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="arco" data-era="III"><span class="arco-ttl">Segunda Batalla de Geonosis</span></div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="37" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">037</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S2E5</span><span class="ep-ttl">"Landing at Point Rain"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Geonosis</div>
+    <div class="ep-evt">El asalto militar aliado a Geonosis. Acción total en condiciones extremas.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="38" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">038</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S2E6</span><span class="ep-ttl">"Weapons Factory"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Geonosis</div>
+    <div class="ep-evt">Sabotaje de la fábrica de tanques por Ahsoka y Barriss Offee. Sacrificio y amistad.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="39" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">039</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S2E7</span><span class="ep-ttl">"Legacy of Terror"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Geonosis (Catacumbas)</div>
+    <div class="ep-evt">Incursión de terror ante los parásitos y zombis geonosianos. Horror atmosférico único.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="40" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">040</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S2E8</span><span class="ep-ttl">"Brain Invaders"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Fragata Médica</div>
+    <div class="ep-evt">Infección por parásitos geonosianos. Barriss infectada contra Ahsoka. Siembra las semillas de una traición futura.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="arco" data-era="III"><span class="arco-ttl">Rescate de Eeth Koth · El Clon Desertor · Lightsaber Lost</span></div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="41" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">041</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S2E9</span><span class="ep-ttl">"Grievous Intrigue"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Crucero Separatista</div>
+    <div class="ep-evt">Rescate del Maestro Eeth Koth por Obi-Wan y Adi Gallia.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="42" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">042</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S2E10</span><span class="ep-ttl">"The Deserter"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Saleucami</div>
+    <div class="ep-evt">Rex herido. Encuentro con el clon desertor Cut Lawquane que eligió la familia sobre la guerra.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="43" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">043</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S2E11</span><span class="ep-ttl">"Lightsaber Lost"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Coruscant (Bajos Fondos)</div>
+    <div class="ep-evt">Búsqueda urbana del sable de luz hurtado de Ahsoka. Coruscant desde abajo.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="arco" data-era="III"><span class="arco-ttl">El Corazón de Mandalore · Satine y Obi-Wan</span></div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="44" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">044</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S2E12</span><span class="ep-ttl">"The Mandalore Plot"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Mandalore · Concordia</div>
+    <div class="ep-evt">Obi-Wan investiga la insurgencia terrorista de Death Watch. Pre Vizsla y Bo-Katan aparecen por primera vez.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="45" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">045</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S2E13</span><span class="ep-ttl">"Voyage of Temptation"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Coronet (Crucero)</div>
+    <div class="ep-evt">La neutralidad política de Satine. Tensiones románticas e ideológicas. Obi-Wan y la mujer que eligió no amar.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="46" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">046</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S2E14</span><span class="ep-ttl">"Duchess of Mandalore"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Coruscant</div>
+    <div class="ep-evt">Conspiración política en el Senado para intervenir militarmente Mandalore.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="47" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">047</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S2E15</span><span class="ep-ttl">"Senate Murders"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Coruscant</div>
+    <div class="ep-evt">Investigación criminal del asesinato del político Onaconda Farr. Intriga en el Senado.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="arco" data-era="III"><span class="arco-ttl">El Virus de Naboo · La Liberación de Ryloth</span></div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="48" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">048</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S1E17</span><span class="ep-ttl">"Blue Shadow Virus"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Naboo</div>
+    <div class="ep-evt">Frustración de la superarma biológica del Dr. Nuvo Vindi en los pantanos de Naboo.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="49" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">049</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S1E18</span><span class="ep-ttl">"Mystery of a Thousand Moons"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Iego</div>
+    <div class="ep-evt">Búsqueda del antídoto del virus en un planeta sitiado por una leyenda.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="50" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">050</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S1E19</span><span class="ep-ttl">"Storm Over Ryloth"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Ryloth (Órbita)</div>
+    <div class="ep-evt">Ahsoka Tano asume el mando aéreo y sufre pérdidas severas. Aprende de sus errores.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="51" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">051</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S1E20</span><span class="ep-ttl">"Innocents of Ryloth"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Nabat (Ryloth)</div>
+    <div class="ep-evt">Operación de infantería de Obi-Wan. Rescate de refugiados Twi'lek en peligro.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="52" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">052</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S1E21</span><span class="ep-ttl">"Liberty on Ryloth"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Lessu (Ryloth)</div>
+    <div class="ep-evt">Mace Windu libera la capital junto a Cham Syndulla. Padre de Hera Syndulla.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="53" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">053</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S1E22</span><span class="ep-ttl">"Hostage Crisis"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Coruscant (Senado)</div>
+    <div class="ep-evt">Cad Bane asalta el Senado para forzar la liberación de Ziro. Anakin le da su sable a Padmé.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="arco" data-era="III"><span class="arco-ttl">Boba Fett Niño · El Hijo de Jango</span></div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="54" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">054</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S2E17</span><span class="ep-ttl">"Death Trap"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Crucero Endurance</div>
+    <div class="ep-evt">El joven Boba Fett se infiltra para ejecutar a Mace Windu, el hombre que mató a su padre.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="55" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">055</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S2E18</span><span class="ep-ttl">"R2 Come Home"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Vanqor</div>
+    <div class="ep-evt">R2-D2 elude cazadores para rescatar a Anakin y Mace atrapados en los escombros.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="56" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">056</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S2E19</span><span class="ep-ttl">"Lethal Trackdown"</span><span class="ep-yr">22 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Florrum</div>
+    <div class="ep-evt">Ahsoka y Plo Koon rastrean y detienen a Boba, Aurra Sing y la banda.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<!-- FASE AÑO 2 -->
+<div class="fase" data-era="III"><span class="fase-ttl">Año 2 de la Guerra</span><span class="fase-yrs">20 BBY</span></div>
+<div class="arco" data-era="III"><span class="arco-ttl">Política de Mandalore · Pantora · Coruscant</span></div>
+
+<div class="ep" data-era="III" data-pri="o" data-id="57" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">057</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri po">OPCIONAL</span><span class="ep-code">TCW S3E4</span><span class="ep-ttl">"Sphere of Influence"</span><span class="ep-yr">20 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Coruscant · Pantora</div>
+    <div class="ep-evt">Secuestro de las hijas del barón Papanoida por el Gremio Pyke.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="58" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">058</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S3E5</span><span class="ep-ttl">"Corruption"</span><span class="ep-yr">20 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Mandalore</div>
+    <div class="ep-evt">Satine Kryze combate la corrupción y el contrabando de té adulterado desde adentro.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="59" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">059</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S3E6</span><span class="ep-ttl">"The Academy"</span><span class="ep-yr">20 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Mandalore</div>
+    <div class="ep-evt">Ahsoka instruye a cadetes mandalorianos sobre corrupción. Descubren un complot del Primer Ministro.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="60" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">060</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S3E7</span><span class="ep-ttl">"Assassin"</span><span class="ep-yr">20 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Alderaan</div>
+    <div class="ep-evt">Ahsoka tiene visiones místicas de un atentado contra Padmé bajo acecho de Aurra Sing.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="o" data-id="61" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">061</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri po">OPCIONAL</span><span class="ep-code">TCW S3E8</span><span class="ep-ttl">"Evil Plans"</span><span class="ep-yr">20 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Coruscant</div>
+    <div class="ep-evt">Secuestro de C-3PO y R2-D2 por Cad Bane para obtener planos del Senado.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="o" data-id="62" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">062</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri po">OPCIONAL</span><span class="ep-code">TCW S3E9</span><span class="ep-ttl">"Hunt for Ziro"</span><span class="ep-yr">20 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Nal Hutta · Teth</div>
+    <div class="ep-evt">Quinlan Vos y Obi-Wan persiguen a Ziro el Hutt tras su fuga. Introducción de Quinlan Vos.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="63" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">063</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S3E10</span><span class="ep-ttl">"Heroes on Both Sides"</span><span class="ep-yr">20 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Raxus</div>
+    <div class="ep-evt">Ahsoka visita el Senado Separatista por primera vez. Los enemigos también son personas.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="64" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">064</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S3E11</span><span class="ep-ttl">"Pursuit of Peace"</span><span class="ep-yr">20 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Coruscant</div>
+    <div class="ep-evt">Padmé y Bail Organa se oponen políticamente al aumento del gasto militar. La guerra desde el Senado.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="arco" data-era="III"><span class="arco-ttl">Las Brujas de Dathomir · El Nacimiento de Savage · Mortis</span></div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="65" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">065</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S3E12</span><span class="ep-ttl">"Nightsisters"</span><span class="ep-yr">20 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Dathomir</div>
+    <div class="ep-evt">Asajj Ventress es traicionada y abandonada por Dooku. Las Brujas de Dathomir planean venganza.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="66" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">066</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S3E13</span><span class="ep-ttl">"Monster"</span><span class="ep-yr">20 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Dathomir</div>
+    <div class="ep-evt">Creación física y mística de Savage Opress por Mother Talzin. Un arma de carne y oscuridad.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="67" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">067</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S3E14</span><span class="ep-ttl">"Witches of the Mist"</span><span class="ep-yr">20 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Toydaria · Dathomir</div>
+    <div class="ep-evt">Savage traiciona a Dooku y a Ventress. Primera búsqueda del exiliado Maul.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="68" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">068</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S3E15</span><span class="ep-ttl">"Overlords"</span><span class="ep-yr">20 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Mortis</div>
+    <div class="ep-evt">El místico viaje de la Fuerza como entidad física consciente. El Padre, el Hijo, la Hija.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="69" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">069</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S3E16</span><span class="ep-ttl">"Altar of Mortis"</span><span class="ep-yr">20 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Mortis</div>
+    <div class="ep-evt">Corrupción oscura temporal de Ahsoka Tano. El Hijo la convierte al lado oscuro. Sacrificio de la Hija.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="70" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">070</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S3E17</span><span class="ep-ttl">"Ghosts of Mortis"</span><span class="ep-yr">20 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Mortis</div>
+    <div class="ep-evt">Anakin Skywalker ve su futuro oscuro — y lo olvida. Conclusión mística del arco más profundo de la saga animada.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="arco" data-era="III"><span class="arco-ttl">La Ciudadela · Tarkin · Los Younglings Cazados</span></div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="71" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">071</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S3E18</span><span class="ep-ttl">"The Citadel"</span><span class="ep-yr">20 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Lola Sayu</div>
+    <div class="ep-evt">Infiltración Jedi para rescatar al Almirante Even Piell. Primer contacto táctico con Tarkin.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="72" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">072</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S3E19</span><span class="ep-ttl">"Counterattack"</span><span class="ep-yr">20 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Lola Sayu</div>
+    <div class="ep-evt">Escape accidentado. El primer contacto táctico entre Anakin y Tarkin.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="73" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">073</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S3E20</span><span class="ep-ttl">"Citadel Rescue"</span><span class="ep-yr">20 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Lola Sayu</div>
+    <div class="ep-evt">Muerte de Even Piell. La supuesta caída del soldado Echo — que resonará años después.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="74" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">074</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S3E21</span><span class="ep-ttl">"Padawan Lost"</span><span class="ep-yr">20 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Wasskah</div>
+    <div class="ep-evt">Ahsoka es secuestrada por cazadores trandoshanos para ser presa de caza.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="75" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">075</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S3E22</span><span class="ep-ttl">"Wookiee Hunt"</span><span class="ep-yr">20 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Wasskah</div>
+    <div class="ep-evt">Alianza táctica de Ahsoka con Chewbacca para liderar la revuelta de los jóvenes cautivos.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="arco" data-era="III"><span class="arco-ttl">Mon Cala · Naboo · Umbara</span></div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="76" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">076</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S4E1</span><span class="ep-ttl">"Water War"</span><span class="ep-yr">20 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Mon Cala</div>
+    <div class="ep-evt">Estallido de la guerra civil submarina de Mon Cala. Rey Lee-Char.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="77" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">077</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S4E2</span><span class="ep-ttl">"Gungan Attack"</span><span class="ep-yr">20 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Mon Cala</div>
+    <div class="ep-evt">Despliegue de apoyo acuático del ejército Gungan. Kit Fisto y Jar Jar al rescate.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="78" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">078</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S4E3</span><span class="ep-ttl">"Prisoners"</span><span class="ep-yr">20 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Mon Cala</div>
+    <div class="ep-evt">El Capitán Lee-Char prisionero lidera la resistencia. Riff Tamson el villano tiburón.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="o" data-id="79" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">079</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri po">OPCIONAL</span><span class="ep-code">TCW S4E4</span><span class="ep-ttl">"Shadow Warrior"</span><span class="ep-yr">20 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Naboo</div>
+    <div class="ep-evt">Jar Jar imita al General Grievous en una conspiracion separatista en Naboo.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="o" data-id="80" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">080</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri po">OPCIONAL</span><span class="ep-code">TCW S4E5</span><span class="ep-ttl">"Mercy Mission"</span><span class="ep-yr">20 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Aleen</div>
+    <div class="ep-evt">Asistencia humanitaria de C-3PO y R2-D2. Solo completistas.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="o" data-id="81" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">081</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri po">OPCIONAL</span><span class="ep-code">TCW S4E6</span><span class="ep-ttl">"Nomad Droids"</span><span class="ep-yr">20 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Espacio</div>
+    <div class="ep-evt">Aventuras accidentales de C-3PO y R2-D2. Absurdo existencial. Solo completistas.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="arco" data-era="III"><span class="arco-ttl">Umbara: El General Traidor</span></div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="82" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">082</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S4E7</span><span class="ep-ttl">"Darkness on Umbara"</span><span class="ep-yr">20 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Umbara</div>
+    <div class="ep-evt">Despliegue terrestre en la penumbra de Umbara. El General Krell toma el mando. El infierno comienza.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="83" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">083</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S4E8</span><span class="ep-ttl">"The General"</span><span class="ep-yr">20 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Umbara</div>
+    <div class="ep-evt">El General Krell exige tácticas suicidas a la Legión 501ª. Clones enviados a morir deliberadamente.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="84" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">084</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S4E9</span><span class="ep-ttl">"Plan of Dissent"</span><span class="ep-yr">20 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Umbara</div>
+    <div class="ep-evt">Rebelión interna liderada por Fives, Jesse y Hardcase. Los clones se niegan a obedecer.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="85" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">085</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S4E10</span><span class="ep-ttl">"Carnage of Krell"</span><span class="ep-yr">20 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Umbara</div>
+    <div class="ep-evt">Revelación de la traición Sith de Krell. Rex toma decisiones imposibles. Ejecución del general caído.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="arco" data-era="III"><span class="arco-ttl">La Esclavitud Zygerriana</span></div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="86" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">086</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S4E11</span><span class="ep-ttl">"Kidnapped"</span><span class="ep-yr">20 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Kiros</div>
+    <div class="ep-evt">El Sindicato Zygerriano aprisiona a toda la población Togruta de Kiros.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="87" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">087</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S4E12</span><span class="ep-ttl">"Slaves of the Republic"</span><span class="ep-yr">20 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Zygerria</div>
+    <div class="ep-evt">Infiltración encubierta de los Jedi como esclavos. La esclavitud como herramienta política proto-imperial.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="88" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">088</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S4E13</span><span class="ep-ttl">"Escape from Kadavo"</span><span class="ep-yr">20 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Kadavo</div>
+    <div class="ep-evt">Sabotaje aéreo y rescate de los colonos de la prisión. Liberación del pueblo Togruta.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="arco" data-era="III"><span class="arco-ttl">Obi-Wan Encubierto · La Masacre de Dathomir</span></div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="89" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">089</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S4E14</span><span class="ep-ttl">"A Friend in Need"</span><span class="ep-yr">20 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Carlac</div>
+    <div class="ep-evt">Ahsoka se topa con Lux Bonteri en Carlac. Death Watch regresa. Bo-Katan Kryze aparece.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="90" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">090</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S4E15</span><span class="ep-ttl">"Deception"</span><span class="ep-yr">20 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Coruscant</div>
+    <div class="ep-evt">Falsa muerte de Obi-Wan Kenobi. Infiltración criminal como el asesino Hardeen.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="91" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">091</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S4E16</span><span class="ep-ttl">"Friends and Enemies"</span><span class="ep-yr">20 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Nal Hutta</div>
+    <div class="ep-evt">Huida de Obi-Wan perseguido por Anakin sin saber quién es. La actuación más exigente.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="92" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">092</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S4E17</span><span class="ep-ttl">"The Box"</span><span class="ep-yr">20 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Serenno</div>
+    <div class="ep-evt">Torneo táctico de supervivencia diseñado por Moralo Eval. Cad Bane compite.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="93" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">093</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S4E18</span><span class="ep-ttl">"Crisis on Naboo"</span><span class="ep-yr">20 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Naboo</div>
+    <div class="ep-evt">Atentado fallido contra el Canciller Supremo Palpatine. El plan al descubierto.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="94" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">094</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S4E19</span><span class="ep-ttl">"Massacre"</span><span class="ep-yr">20 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Dathomir</div>
+    <div class="ep-evt">El exterminio total de las Nightsisters por Grievous. Ventress queda sola. Dathomir en llamas.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="note note-r" data-era="III">◆ SIMULTÁNEO — Tales of the Empire Ep.1 "Path of Fear" transcurre durante esta masacre. Morgan Elsbeth sobrevive mientras Dathomir arde. Insertar ahora.</div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="94b" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">094b</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TotE S1E1</span><span class="ep-ttl">"Path of Fear" (Morgan Elsbeth)</span><span class="ep-yr">20 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Dathomir</div>
+    <div class="ep-evt">Morgan Elsbeth sobrevive la masacre de Dathomir. Su lealtad al Imperio nace en este instante.</div>
+    <div class="ep-note">⟶ Insertar inmediatamente tras TCW S4E19</div>
+  </div><div class="fmt f-short">ANTOLOGÍA</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="95" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">095</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S4E20</span><span class="ep-ttl">"Bounty"</span><span class="ep-yr">20 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Submundo (Outer Rim)</div>
+    <div class="ep-evt">Ventress se une al gremio de cazarrecompensas de Boba Fett para reconstruir su vida.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="arco" data-era="III"><span class="arco-ttl">El Regreso de Maul</span></div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="96" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">096</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S4E21</span><span class="ep-ttl">"Brothers"</span><span class="ep-yr">20 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Lotho Minor</div>
+    <div class="ep-evt">Savage localiza a un desmembrado y desquiciado Maul en un planeta basura. El reencuentro.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="97" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">097</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S4E22</span><span class="ep-ttl">"Revenge"</span><span class="ep-yr">20 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Raydonia</div>
+    <div class="ep-evt">Restauración mental de Maul por Mother Talzin. Emboscada mortal contra Obi-Wan Kenobi.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<!-- FASE AÑO FINAL -->
+<div class="fase" data-era="III"><span class="fase-ttl">Año Final · Los Arcos más Intensos</span><span class="fase-yrs">19 BBY</span></div>
+<div class="arco" data-era="III"><span class="arco-ttl">Maul Conquista Mandalore</span></div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="98" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">098</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S5E1</span><span class="ep-ttl">"Revival"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Florrum</div>
+    <div class="ep-evt">Maul y Savage matan a la Maestra Adi Gallia y asaltan la base pirata de Hondo.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="arco" data-era="III"><span class="arco-ttl">La Guerrilla de Onderon · Los Younglings</span></div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="99" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">099</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S5E2</span><span class="ep-ttl">"A War on Two Fronts"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Onderon</div>
+    <div class="ep-evt">Ahsoka Tano entrena a los rebeldes insurgentes de Iziz. Primera vez como instructora.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="100" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">100</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S5E3</span><span class="ep-ttl">"Front Runners"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Iziz (Onderon)</div>
+    <div class="ep-evt">Primeras incursiones coordinadas de la guerrilla urbana contra los droides separatistas.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="101" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">101</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S5E4</span><span class="ep-ttl">"The Soft War"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Onderon</div>
+    <div class="ep-evt">Rescate político del depuesto rey de Onderon. Traición interna.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="102" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">102</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S5E5</span><span class="ep-ttl">"Tipping Points"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Onderon</div>
+    <div class="ep-evt">Liberación del planeta. Muerte trágica de Steela Gerrera — hermana de Saw.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="103" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">103</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S5E6</span><span class="ep-ttl">"The Gathering"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Ilum</div>
+    <div class="ep-evt">Los iniciados buscan su cristal kyber en el templo helado. El origen del sable de luz.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="104" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">104</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S5E7</span><span class="ep-ttl">"A Test of Strength"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Crucible (Transporte)</div>
+    <div class="ep-evt">El transbordador de iniciados es asaltado por piratas de Hondo Ohnaka.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="105" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">105</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S5E8</span><span class="ep-ttl">"Bound for Rescue"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Florrum</div>
+    <div class="ep-evt">Los propios younglings se infiltran para rescatar a Ahsoka de los piratas.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="106" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">106</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S5E9</span><span class="ep-ttl">"A Necessary Bond"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Florrum</div>
+    <div class="ep-evt">Alianza forzada con piratas para repeler al General Grievous. Hondo ayuda por conveniencia.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="arco" data-era="III"><span class="arco-ttl">D-Squad · Misión Secreta</span></div>
+
+<div class="ep" data-era="III" data-pri="o" data-id="107" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">107</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri po">OPCIONAL</span><span class="ep-code">TCW S5E10</span><span class="ep-ttl">"Secret Weapons"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Carida</div>
+    <div class="ep-evt">Misión espacial de la unidad D-Squad para robar un decodificador separatista.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="o" data-id="108" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">108</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri po">OPCIONAL</span><span class="ep-code">TCW S5E11</span><span class="ep-ttl">"A Sunny Day in the Void"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Abafar</div>
+    <div class="ep-evt">Pérdida de rumbo en un desierto existencial. Solo completistas.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="o" data-id="109" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">109</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri po">OPCIONAL</span><span class="ep-code">TCW S5E12</span><span class="ep-ttl">"Missing in Action"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Abafar</div>
+    <div class="ep-evt">Encuentro con Gregor, clon comando afectado por amnesia. Emotivo.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="o" data-id="110" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">110</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri po">OPCIONAL</span><span class="ep-code">TCW S5E13</span><span class="ep-ttl">"Point of No Return"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Crucero Espacial</div>
+    <div class="ep-evt">Destrucción de la superarma flotante separatista. Cierre del arco D-Squad.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="arco" data-era="III"><span class="arco-ttl">Maul Toma Mandalore · La Muerte de Satine</span></div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="111" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">111</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S5E14</span><span class="ep-ttl">"Eminence"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Florrum · Mandalore</div>
+    <div class="ep-evt">Maul pacta con la Guardia de la Muerte y los sindicatos. Fundación del Sindicato de la Sombra.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="112" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">112</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S5E15</span><span class="ep-ttl">"Shades of Reason"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Mandalore</div>
+    <div class="ep-evt">Golpe de Estado. Maul decapita y usurpa el mando de Pre Vizsla. Bo-Katan se niega a jurar lealtad.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="113" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">113</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S5E16</span><span class="ep-ttl">"The Lawless"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Mandalore</div>
+    <div class="ep-evt">Muerte de Satine Kryze en los brazos de Obi-Wan. Palpatine llega en persona y apresa a Maul.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="arco" data-era="III"><span class="arco-ttl">El Juicio de Ahsoka Tano</span></div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="114" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">114</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S5E17</span><span class="ep-ttl">"Sabotage"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Coruscant (Templo)</div>
+    <div class="ep-evt">Explosión provocada en el hangar del Templo Jedi. Ahsoka investiga. El inicio de su caída.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="115" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">115</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S5E18</span><span class="ep-ttl">"The Jedi Who Knew Too Much"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Coruscant</div>
+    <div class="ep-evt">Ahsoka es falsamente acusada de terrorismo. Escapa del Templo hacia los bajos fondos.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="116" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">116</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S5E19</span><span class="ep-ttl">"To Catch a Jedi"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Coruscant (Bajos Fondos)</div>
+    <div class="ep-evt">Alianza temporal de Ahsoka con Ventress. La búsqueda de la verdad en los submundos.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="117" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">117</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S5E20</span><span class="ep-ttl">"The Wrong Jedi"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Coruscant</div>
+    <div class="ep-evt">El juicio de Ahsoka Tano. Barriss Offee es la culpable. Ahsoka abandona voluntariamente la Orden Jedi.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="arco" data-era="III"><span class="arco-ttl">El Secreto del Chip · La Muerte de Fives</span></div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="118" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">118</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S6E1</span><span class="ep-ttl">"The Unknown"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Órbita de Ringo Vinda</div>
+    <div class="ep-evt">El clon Tup comete un asesinato imprevisto por falla del bio-chip. El hilo comienza a tirar.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="119" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">119</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S6E2</span><span class="ep-ttl">"Conspiracy"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Kamino</div>
+    <div class="ep-evt">Fives se infiltra en el centro médico de Kamino. La anomalía no es natural.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="120" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">120</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S6E3</span><span class="ep-ttl">"Fugitive"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Kamino</div>
+    <div class="ep-evt">Fives extrae el chip de su propio cerebro. La verdad está ahí. Huye para revelarla.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="121" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">121</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S6E4</span><span class="ep-ttl">"Orders"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Coruscant</div>
+    <div class="ep-evt">Fives cara a cara con Palpatine. Es abatido antes de revelar la verdad. El episodio más devastador de la saga.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="arco" data-era="III"><span class="arco-ttl">Rush Clovis · El Banco Galáctico</span></div>
+
+<div class="ep" data-era="III" data-pri="o" data-id="122" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">122</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri po">OPCIONAL</span><span class="ep-code">TCW S6E5</span><span class="ep-ttl">"An Old Friend"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Scipio</div>
+    <div class="ep-evt">Padmé investiga fraudes bancarios del Clan Bancario con Rush Clovis.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="o" data-id="123" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">123</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri po">OPCIONAL</span><span class="ep-code">TCW S6E6</span><span class="ep-ttl">"Rise of Clovis"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Coruscant</div>
+    <div class="ep-evt">Rush Clovis toma el control absoluto de los bancos. Anakin celoso.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="o" data-id="124" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">124</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri po">OPCIONAL</span><span class="ep-code">TCW S6E7</span><span class="ep-ttl">"Crisis at the Heart"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Scipio</div>
+    <div class="ep-evt">Ataque separatista a Scipio. Muerte de Clovis. Palpatine nationaliza los bancos.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="arco" data-era="III"><span class="arco-ttl">Bardotta · Las Desapariciones Místicas</span></div>
+
+<div class="ep" data-era="III" data-pri="o" data-id="125" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">125</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri po">OPCIONAL</span><span class="ep-code">TCW S6E8</span><span class="ep-ttl">"The Disappeared I"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Bardotta</div>
+    <div class="ep-evt">Mace Windu y Jar Jar investigan extrañas desapariciones místicas espirituales.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="o" data-id="126" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">126</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri po">OPCIONAL</span><span class="ep-code">TCW S6E9</span><span class="ep-ttl">"The Disappeared II"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Bardotta</div>
+    <div class="ep-evt">Rescate de la reina espiritual. Jar Jar como héroe involuntario. Absurdo pero entrañable.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="arco" data-era="III"><span class="arco-ttl">Yoda y el Misterio de la Inmortalidad</span></div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="127" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">127</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S6E10</span><span class="ep-ttl">"The Lost One"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Oba Diah</div>
+    <div class="ep-evt">Revelación de los secretos y la muerte del Maestro Sifo-Dyas. El origen oculto del ejército clon.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="128" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">128</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S6E11</span><span class="ep-ttl">"Voices"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Coruscant (Templo)</div>
+    <div class="ep-evt">El Maestro Yoda contacta con la voz espiritual de Qui-Gon Jinn desde más allá de la muerte.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="129" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">129</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S6E12</span><span class="ep-ttl">"Destiny"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Planeta de la Fuerza</div>
+    <div class="ep-evt">Yoda viaja al pozo existencial de las Sacerdotisas de la Fuerza. La inmortalidad en la Fuerza.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="130" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">130</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S6E13</span><span class="ep-ttl">"Sacrifice"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Moraband (Korriban)</div>
+    <div class="ep-evt">Yoda enfrenta visiones Sith creadas por Sidious en el planeta más oscuro de la galaxia.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="arco" data-era="III"><span class="arco-ttl">Clone Force 99 · Echo Está Vivo</span></div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="131" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">131</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S7E1</span><span class="ep-ttl">"The Bad Batch"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Anaxes</div>
+    <div class="ep-evt">Presentación de Clone Force 99 junto al Almirante Trench. Los inadaptados que cambiarán todo.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="132" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">132</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S7E2</span><span class="ep-ttl">"A Distant Echo"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Skako Minor</div>
+    <div class="ep-evt">Localización y confirmación de que el clon Echo está con vida — usado como arma por el Tecno-Unión.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="133" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">133</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S7E3</span><span class="ep-ttl">"On the Wings of Keeradaks"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Skako Minor</div>
+    <div class="ep-evt">Extracción de Echo de las terminales del Tecno-Unión. La condición de Echo revelada.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="134" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">134</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S7E4</span><span class="ep-ttl">"Unfinished Business"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Anaxes</div>
+    <div class="ep-evt">Derrota final del Almirante Trench. Echo decide integrarse permanentemente a Clone Force 99.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="arco" data-era="III"><span class="arco-ttl">Ahsoka en los Bajos Fondos · Las Martez</span></div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="135" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">135</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S7E5</span><span class="ep-ttl">"Gone with a Trace"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Coruscant (Bajos Fondos)</div>
+    <div class="ep-evt">Ahsoka se oculta y conoce a las hermanas Trace y Rafa Martez. Sin nombre, sin identidad.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="136" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">136</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S7E6</span><span class="ep-ttl">"Deal No Deal"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Oba Diah</div>
+    <div class="ep-evt">Misión fallida de contrabando de especias Pyke. El peligro del submundo criminal.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="137" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">137</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S7E7</span><span class="ep-ttl">"Dangerous Debt"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Fortaleza Pyke</div>
+    <div class="ep-evt">Ahsoka arrestada en la fortaleza Pyke. Su identidad Jedi se revela a las Martez.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="138" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">138</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TCW S7E8</span><span class="ep-ttl">"Together Again"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Coruscant</div>
+    <div class="ep-evt">Ahsoka escapa y asume su deber tras toparse con mandalorianas. Reencontrando su camino.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="note note-g" data-era="III">▲ Insertar aquí: Tales of the Jedi ep.5 "Practice Makes Perfect" · Ahsoka entrenando con clones — simultáneo durante estos meses, justo antes del Sitio de Mandalore.</div>
+
+<div class="ep" data-era="III" data-pri="i" data-id="138b" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">138b</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TotJ S1E5</span><span class="ep-ttl">"Practice Makes Perfect"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Coruscant (Templo)</div>
+    <div class="ep-evt">Ahsoka entrenando con clones antes del Sitio de Mandalore. Punto de inserción obligatorio cronológico.</div>
+    <div class="ep-note">⟶ Insertar antes de TCW S7E9</div>
+  </div><div class="fmt f-short">ANTOLOGÍA</div>
+</div>
+
+<!-- ═══════════ NODO CRÍTICO ═══════════ -->
+<div class="nodo" data-era="III" onclick="toggleNodo(this)">
+  <div class="nodo-hdr">
+    <div class="nodo-gem"></div>
+    <div>
+      <div class="nodo-ttl">◆ Nodo Crítico — 19 BBY — El Colapso de la República</div>
+      <div class="nodo-sub">Fusión transmedia: TCW S7 · Episodio III · The Bad Batch S1E1 · Tales of the Empire E4</div>
+    </div>
+  </div>
+  <div class="nodo-body">
+    <div class="nstep"><div class="ns-n">1</div><div><div class="ns-what">TCW S7E9 — primera mitad (0:00–16:25)</div><div class="ns-desc">Reunión de Anakin, Obi-Wan y Ahsoka. Pausar cuando la alarma de Coruscant suena y los generales saltan al hiperespacio.</div></div></div>
+    <div class="nstep"><div class="ns-n">2</div><div><div class="ns-what">TCW S7E9 — segunda mitad (16:25–fin)</div><div class="ns-desc">Despliegue de la División 332ª. El Asedio de Mandalore comienza.</div></div></div>
+    <div class="nstep"><div class="ns-n">3</div><div><div class="ns-what">Episodio III — hasta la muerte de Dooku (0:00–27:34)</div><div class="ns-desc">Batalla de Coruscant. Duelo final. Pausar después de "Good, Anakin. Good."</div></div></div>
+    <div class="nstep"><div class="ns-n">4</div><div><div class="ns-what">TCW S7E10 — "The Phantom Apprentice" completo</div><div class="ns-desc">Maul: "Anakin Skywalker ha matado al Conde Dooku." El peso es total.</div></div></div>
+    <div class="nstep"><div class="ns-n">5</div><div><div class="ns-what">TCW S7E11 — "Shattered" (0:00–9:30)</div><div class="ns-desc">Pausar cuando Maul es asegurado en la cabina de estasis.</div></div></div>
+    <div class="nstep"><div class="ns-n">6</div><div><div class="ns-what">Episodio III — (27:34–1:12:00)</div><div class="ns-desc">Pesadillas, el Consejo, la ópera. Palpatine revela ser Sith. Muerte de Mace. Anakin se arrodilla. Pausar antes de "Execute Order 66".</div></div></div>
+    <div class="nfrentes">── ORDEN 66 · CUATRO FRENTES SIMULTÁNEOS ──</div>
+    <div class="nstep sub"><div class="ns-n">6A</div><div><div class="ns-what">Frente Rex — TCW S7E11 (9:30–15:00)</div><div class="ns-desc">Rex derrama una lágrima, advierte a Ahsoka, abre fuego. Ver primero.</div></div></div>
+    <div class="nstep sub"><div class="ns-n">6B</div><div><div class="ns-what">Frente Templo — Tales of Empire E4 "Devoted" (0:00–2:00)</div><div class="ns-desc">Barriss Offee escucha las alarmas y explosiones en el Templo Jedi. Ver segundo.</div></div></div>
+    <div class="nstep sub"><div class="ns-n">6C</div><div><div class="ns-what">Frente Kaller — The Bad Batch S1E1 (0:00–8:00)</div><div class="ns-desc">Muerte de la Maestra Billaba. Caleb Dume —futuro Kanan Jarrus— huye. Ver tercero.</div></div></div>
+    <div class="nstep sub"><div class="ns-n">6D</div><div><div class="ns-what">Frente Galáctico — Episodio III · Secuencia Orden 66</div><div class="ns-desc">Aayla Secura. Plo Koon. Ki-Adi-Mundi. La montaña de muertes. Ver cuarto. Pausar al terminar.</div></div></div>
+    <div class="nstep"><div class="ns-n">7</div><div><div class="ns-what">TCW S7E11 (15:00–fin) + S7E12 completo</div><div class="ns-desc">Ahsoka y Rex entierran a sus hermanos en una luna helada. Pausar antes de la escena final.</div></div></div>
+    <div class="nstep"><div class="ns-n">8</div><div><div class="ns-what">Episodio III — Mustafar hasta nacimiento de los gemelos</div><div class="ns-desc">La caída definitiva. Duelos. Padmé muere. La máscara. Luke y Leia separados.</div></div></div>
+    <div class="nstep"><div class="ns-n">9</div><div><div class="ns-what">Tales of the Empire E4 "Devoted" (2:00–fin)</div><div class="ns-desc">Barriss integrada al Inquisitorio ante Vader. Las consecuencias inmediatas.</div></div></div>
+    <div class="nstep"><div class="ns-n">10</div><div><div class="ns-what">TCW S7E12 — escena final + Tales of the Jedi E6 "Resolve" (epílogo)</div><div class="ns-desc">Vader encuentra el casco de Ahsoka. El epílogo más desolador de la saga.</div></div></div>
+  </div>
+  <div class="nodo-foot">▶ Toca para expandir/colapsar · Versión simple: TCW S7E1-8 → Ep.III completo → TCW S7E9-12</div>
+</div>
+
+<div class="arco" data-era="III"><span class="arco-ttl">El Asedio de Mandalore · Final Definitivo</span></div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="139" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">139</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S7E9</span><span class="ep-ttl">"Old Friends Not Forgotten"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Sundari (Mandalore)</div>
+    <div class="ep-evt">Ahsoka regresa con un ejército. El Asedio de Mandalore comienza. Simultáneo con la apertura de Ep. III.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="140" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">140</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S7E10</span><span class="ep-ttl">"The Phantom Apprentice"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Mandalore</div>
+    <div class="ep-evt">Maul revela todo lo que sabe. "Dooku ha muerto. Anakin Skywalker caerá." Duelo épico Ahsoka vs Maul.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="141" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">141</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S7E11</span><span class="ep-ttl">"Shattered"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Crucero Venator (Órbita Mandalore)</div>
+    <div class="ep-evt">La Orden 66 vista desde los ojos de Ahsoka y Rex. El momento más devastador de toda la saga animada.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+
+<div class="ep" data-era="III" data-pri="e" data-id="142" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">142</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TCW S7E12</span><span class="ep-ttl">"Victory and Death"</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Luna Helada</div>
+    <div class="ep-evt">Ahsoka y Rex entierran a sus hermanos. Vader encuentra el casco de Ahsoka. El final definitivo.</div>
+  </div><div class="fmt f-anim">TCW</div>
+</div>
+</div><!-- /era III -->
+
+<!-- ══════════════════════════════════════════
+     ERA IV · EL ASCENSO DEL IMPERIO
+══════════════════════════════════════════ -->
+<div class="era" data-era="IV">
+<div class="era-hdr">
+  <div class="era-lbl">Era IV · 19 BBY a 9 BBY</div>
+  <div class="era-ttl">El Ascenso del Imperio</div>
+  <div class="era-yrs">19 BBY – 9 BBY</div>
+  <div class="era-dsc">El Imperio consolida su dominio. Los supervivientes aprenden a existir en la oscuridad. Maul reconstruye su poder desde las sombras.</div>
+</div>
+
+<div class="fase" data-era="IV"><span class="fase-ttl">Fase 1 · El Vacío de Poder Temprano</span><span class="fase-yrs">19–18 BBY</span></div>
+<div class="arco" data-era="IV"><span class="arco-ttl">The Bad Batch · El Amanecer del Imperio</span></div>
+
+<div class="ep" data-era="IV" data-pri="e" data-id="151" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">151</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">BB S1 (E1-16)</span><span class="ep-ttl">The Bad Batch — Temporada 1</span><span class="ep-yr">19 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Kaller · Kamino · Saleucami</div>
+    <div class="ep-evt">Inicia segundos después de la Orden 66. El desmantelamiento del ejército clon. Clone Force 99 y Omega.</div>
+  </div><div class="fmt f-anim">ANIMADA</div>
+</div>
+
+<div class="ep" data-era="IV" data-pri="e" data-id="152" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">152</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TotU S1E1</span><span class="ep-ttl">"A Way Forward" (Ventress)</span><span class="ep-yr">~18 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Dathomir</div>
+    <div class="ep-evt">Resurrección mística de Asajj Ventress en las catacumbas de Dathomir en ruinas.</div>
+  </div><div class="fmt f-short">ANTOLOGÍA</div>
+</div>
+
+<div class="ep" data-era="IV" data-pri="e" data-id="153" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">153</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">TotJ S1E6</span><span class="ep-ttl">"Resolve" (Ahsoka)</span><span class="ep-yr">~18 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Coruscant · Exilio</div>
+    <div class="ep-evt">Ahsoka sobrevive a la cacería de Jedi. El comienzo de una vida sin nombre ni identidad.</div>
+  </div><div class="fmt f-short">ANTOLOGÍA</div>
+</div>
+
+<div class="ep" data-era="IV" data-pri="i" data-id="154" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">154</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TotU S1E2</span><span class="ep-ttl">"Friends" (Ventress)</span><span class="ep-yr">~18 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Submundo</div>
+    <div class="ep-evt">Ventress huye de las primeras patrullas imperiales con armaduras de Stormtrooper.</div>
+  </div><div class="fmt f-short">ANTOLOGÍA</div>
+</div>
+
+<div class="ep" data-era="IV" data-pri="i" data-id="155" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">155</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TotU S1E3</span><span class="ep-ttl">"One Warrior..." (Ventress)</span><span class="ep-yr">~18 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Submundo</div>
+    <div class="ep-evt">Ventress recluta al joven Padawan sobreviviente Lyco para eludir al Imperio en la clandestinidad.</div>
+  </div><div class="fmt f-short">ANTOLOGÍA</div>
+</div>
+
+<div class="fase" data-era="IV"><span class="fase-ttl">Fase 2 · La Consolidación Imperial</span><span class="fase-yrs">18–17 BBY</span></div>
+<div class="arco" data-era="IV"><span class="arco-ttl">The Bad Batch T2-T3 · Los Inadaptados contra el Imperio</span></div>
+
+<div class="ep" data-era="IV" data-pri="e" data-id="157" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">157</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">BB S2 (E1-16)</span><span class="ep-ttl">The Bad Batch — Temporada 2</span><span class="ep-yr">~18 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Pabu · Eriadu · Kamino</div>
+    <div class="ep-evt">Deserción clon masiva. El Imperio ya no necesita soldados con identidad. Fallecimiento del clon Tech.</div>
+  </div><div class="fmt f-anim">ANIMADA</div>
+</div>
+
+<div class="ep" data-era="IV" data-pri="e" data-id="158" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">158</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">BB S3 (E1-15)</span><span class="ep-ttl">The Bad Batch — Temporada 3</span><span class="ep-yr">~17 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Monte Tantiss</div>
+    <div class="ep-evt">Destrucción de la base de clonación de Hemlock. El cierre definitivo del arco de Clone Force 99.</div>
+  </div><div class="fmt f-anim">ANIMADA</div>
+</div>
+
+<div class="ep" data-era="IV" data-pri="i" data-id="156" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">156</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TotE S1E5</span><span class="ep-ttl">"Realization" (Barriss)</span><span class="ep-yr">~18 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Planeta desconocido</div>
+    <div class="ep-evt">Barriss y la Cuarta Hermana rastrean a un Jedi exiliado. Su evolución como Inquisidora.</div>
+  </div><div class="fmt f-short">ANTOLOGÍA</div>
+</div>
+
+<div class="ep" data-era="IV" data-pri="i" data-id="156b" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">156b</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TotE S1E6</span><span class="ep-ttl">"The Way Out" (Barriss)</span><span class="ep-yr">~9 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Cueva helada</div>
+    <div class="ep-evt">Barriss Offee se desliga del Inquisitorio y redime a Lyn. El final de su arco.</div>
+  </div><div class="fmt f-short">ANTOLOGÍA</div>
+</div>
+
+<div class="fase" data-era="IV"><span class="fase-ttl">Fase 3 · El Señor de la Sombra y la Cúspide Imperial</span><span class="fase-yrs">17–9 BBY</span></div>
+<div class="arco" data-era="IV"><span class="arco-ttl">Maul: Shadow Lord · Los Orígenes de Crimson Dawn</span></div>
+
+<div class="ep" data-era="IV" data-pri="i" data-id="159" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">159</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">MSL S1E1</span><span class="ep-ttl">"The Dark Revenge"</span><span class="ep-yr">~17 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Janix</div>
+    <div class="ep-evt">Maul organiza a sus remanentes en las Regiones Interiores. El inicio de la reconstrucción.</div>
+  </div><div class="fmt f-anim">ANIMADA</div>
+</div>
+
+<div class="ep" data-era="IV" data-pri="i" data-id="160" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">160</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">MSL S1E2</span><span class="ep-ttl">"Sinister Schemes"</span><span class="ep-yr">~17 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Janix</div>
+    <div class="ep-evt">Robo del banco de Nico Deemis. El oficial Brander Lawson silencia el caso para evitar la atención imperial.</div>
+  </div><div class="fmt f-anim">ANIMADA</div>
+</div>
+
+<div class="ep" data-era="IV" data-pri="i" data-id="161" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">161</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">MSL S1E3</span><span class="ep-ttl">"Whispers in the Unknown"</span><span class="ep-yr">~17 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Janix</div>
+    <div class="ep-evt">Maul localiza y asiste a la Padawan fugitiva Devon Izara, una joven Twi'lek desilusionada.</div>
+  </div><div class="fmt f-anim">ANIMADA</div>
+</div>
+
+<div class="ep" data-era="IV" data-pri="i" data-id="162" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">162</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">MSL S1E4</span><span class="ep-ttl">"Pride and Vengeance"</span><span class="ep-yr">~17 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Janix</div>
+    <div class="ep-evt">Devon Izara es adoctrinada por Maul sobre las fallas éticas de la Orden Jedi.</div>
+  </div><div class="fmt f-anim">ANIMADA</div>
+</div>
+
+<div class="ep" data-era="IV" data-pri="i" data-id="163" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">163</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">MSL S1E5</span><span class="ep-ttl">"Inquisition"</span><span class="ep-yr">~17 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Janix</div>
+    <div class="ep-evt">La TDF y Lawson deciden actuar para ocultar las pistas ante el Imperio.</div>
+  </div><div class="fmt f-anim">ANIMADA</div>
+</div>
+
+<div class="ep" data-era="IV" data-pri="i" data-id="164" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">164</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">MSL S1E6</span><span class="ep-ttl">"Night of the Hunted"</span><span class="ep-yr">~17 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Janix</div>
+    <div class="ep-evt">Devon Izara huye de sus perseguidores y se une formalmente a Maul como discípula.</div>
+  </div><div class="fmt f-anim">ANIMADA</div>
+</div>
+
+<div class="ep" data-era="IV" data-pri="i" data-id="165" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">165</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">MSL S1E7</span><span class="ep-ttl">"Call to the Oblivion"</span><span class="ep-yr">~17 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Janix</div>
+    <div class="ep-evt">Maul desata su ira en un asalto letal contra sindicatos rivales del Outer Rim.</div>
+  </div><div class="fmt f-anim">ANIMADA</div>
+</div>
+
+<div class="ep" data-era="IV" data-pri="i" data-id="166" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">166</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">MSL S1E8</span><span class="ep-ttl">"The Creeping Fear"</span><span class="ep-yr">~17 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Janix</div>
+    <div class="ep-evt">Conspiraciones financieras contra el Gremio Pyke. Maul expande su red de influencia.</div>
+  </div><div class="fmt f-anim">ANIMADA</div>
+</div>
+
+<div class="ep" data-era="IV" data-pri="i" data-id="167" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">167</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">MSL S1E9</span><span class="ep-ttl">"Strange Allies"</span><span class="ep-yr">~17 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Janix</div>
+    <div class="ep-evt">Vario y Maul se asocian para repeler a Marg Krim. Las alianzas del submundo se solidifican.</div>
+  </div><div class="fmt f-anim">ANIMADA</div>
+</div>
+
+<div class="ep" data-era="IV" data-pri="i" data-id="168" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">168</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">MSL S1E10</span><span class="ep-ttl">"Finale"</span><span class="ep-yr">~17 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Janix</div>
+    <div class="ep-evt">Fundación y reestructuración de Crimson Dawn. Las bases que veremos en Solo: A Star Wars Story.</div>
+  </div><div class="fmt f-anim">ANIMADA</div>
+</div>
+
+<div class="arco" data-era="IV"><span class="arco-ttl">Solo: Crimson Dawn · Obi-Wan en el Exilio</span></div>
+
+<div class="ep" data-era="IV" data-pri="i" data-id="169" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">169</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">SOLO</span><span class="ep-ttl">Solo: A Star Wars Story</span><span class="ep-yr">~13–10 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Corellia · Kessel · Savareen</div>
+    <div class="ep-evt">Han Solo roba el coaxium. Chewbacca. El Halcón Milenario. Maul revelado como líder de Crimson Dawn.</div>
+  </div><div class="fmt f-film">PELÍCULA</div>
+</div>
+
+<div class="ep" data-era="IV" data-pri="i" data-id="170" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">170</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TotE S1E2</span><span class="ep-ttl">"The Path of Anger" (Morgan)</span><span class="ep-yr">~9 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Lothal · Coruscant</div>
+    <div class="ep-evt">Morgan Elsbeth se asocia con el Gran Almirante Thrawn para el Proyecto Defender. Su poder crece.</div>
+  </div><div class="fmt f-short">ANTOLOGÍA</div>
+</div>
+
+<div class="ep" data-era="IV" data-pri="e" data-id="171" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">171</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">OBK S1 (E1-6)</span><span class="ep-ttl">Obi-Wan Kenobi — Temporada 1</span><span class="ep-yr">9 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Daiyu · Mapuzo · Mustafar</div>
+    <div class="ep-evt">Diez años en el desierto. El reencuentro entre Obi-Wan y Vader que ninguno estaba listo para tener.</div>
+  </div><div class="fmt f-live">LIVE-ACTION</div>
+</div>
+</div><!-- /era IV -->
+
+<!-- ══════════════════════════════════════════
+     ERA V · NACIMIENTO DE LA REBELIÓN
+══════════════════════════════════════════ -->
+<div class="era" data-era="V">
+<div class="era-hdr">
+  <div class="era-lbl">Era V · 5 BBY a 0 BBY</div>
+  <div class="era-ttl">Nacimiento de la Rebelión</div>
+  <div class="era-yrs">5 BBY – 0 BBY</div>
+  <div class="era-dsc">La resistencia nace en paralelo. Cassian Andor en las sombras. El Ghost Crew en el espacio abierto. Dos historias que convergen en Scarif.</div>
+</div>
+
+<div class="stbl" data-era="V">
+  <div class="stbl-hdr">
+    <div class="stbl-ttl">⟳ Sincronización Andor × Rebels — Bloque a bloque</div>
+    <div class="stbl-sub">Dos series que construyen la misma Rebelión desde ángulos opuestos</div>
+  </div>
+  <div class="stbl-row ch"><div class="stbl-yr"></div><div class="stbl-c">ANDOR</div><div class="stbl-c">REBELS</div></div>
+  <div class="stbl-row"><div class="stbl-yr">5 BBY</div><div class="stbl-c"><b>T1 completa (12 eps.)</b>Atraco de Aldhani. La ISB intensifica el control.<i>Ver primero.</i></div><div class="stbl-c"><b>T1 completa (15 eps.)</b>Ezra Bridger y el Ghost Crew en Lothal.<i>Ver después de Andor T1.</i></div></div>
+  <div class="stbl-row"><div class="stbl-yr">4 BBY</div><div class="stbl-c"><b>T2 · Eps. 1-3</b>Boda de Leida Mothma. Un año después de Ferrix.</div><div class="stbl-c"><b>T2 completa (22 eps.)</b>Ahsoka regresa. Los Inquisidores. Vader en persona.</div></div>
+  <div class="stbl-row"><div class="stbl-yr">3 BBY</div><div class="stbl-c"><b>T2 · Eps. 4-6</b>La sombra de Ghorman. El "Tarkin Massacre" de 19 BBY mencionado.</div><div class="stbl-c"><b>T3 · Eps. 1-17</b>Thrawn asume el mando de la Séptima Flota.</div></div>
+  <div class="stbl-row"><div class="stbl-yr">2 BBY</div><div class="stbl-c"><b>T2 · Eps. 7-9</b>Masacre de Ghorman. Mon Mothma renuncia al Senado en cadena holográfica.</div><div class="stbl-c"><b>T3 E18 + E19-22</b>Mon Mothma escapa con el Ghost. La Alianza se funda en Dantooine.</div></div>
+  <div class="stbl-row"><div class="stbl-yr">1 BBY</div><div class="stbl-c"><b>T2 · Eps. 10-12</b>Cassian consolidado como agente en Yavin 4.</div><div class="stbl-c"><b>T4 completa (15 eps.)</b>Liberación de Lothal. Ezra y Thrawn desaparecen.</div></div>
+  <div class="stbl-row"><div class="stbl-yr">0 BBY</div><div class="stbl-c"><b>→ Rogue One</b></div><div class="stbl-c"><b>→ Rogue One</b></div></div>
+</div>
+
+<div class="fase" data-era="V"><span class="fase-ttl">5 BBY · El Descontento Descentralizado</span><span class="fase-yrs">5 BBY</span></div>
+<div class="arco" data-era="V"><span class="arco-ttl">Andor T1 · El Atraco de Aldhani</span></div>
+
+<div class="ep" data-era="V" data-pri="e" data-id="173" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">173</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">AND S1 (E1-12)</span><span class="ep-ttl">Andor — Temporada 1</span><span class="ep-yr">5 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Ferrix · Aldhani · Narkina 5</div>
+    <div class="ep-evt">Cassian Andor participa en el robo de Aldhani. La ISB. Narkina 5. La política como resistencia — la serie más madura de toda la saga.</div>
+  </div><div class="fmt f-live">LIVE-ACTION</div>
+</div>
+
+<div class="ep" data-era="V" data-pri="e" data-id="174" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">174</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">REB S1 (E1-15)</span><span class="ep-ttl">Star Wars Rebels — Temporada 1</span><span class="ep-yr">5 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Lothal</div>
+    <div class="ep-evt">Ezra Bridger, Kanan Jarrus, Hera Syndulla, Sabine Wren, Zeb. La primera célula rebelde que conocemos de cerca.</div>
+  </div><div class="fmt f-anim">ANIMADA</div>
+</div>
+
+<div class="fase" data-era="V"><span class="fase-ttl">4 BBY · El Bloque de la Boda y los Inquisidores</span><span class="fase-yrs">4 BBY</span></div>
+
+<div class="ep" data-era="V" data-pri="e" data-id="175" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">175</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">AND S2 (E1-3)</span><span class="ep-ttl">Andor T2 · "Leida's Wedding"</span><span class="ep-yr">4 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Coruscant · Ferrix</div>
+    <div class="ep-evt">Boda de Leida Mothma. Un año después de Ferrix. La ISB estrecha el cerco.</div>
+  </div><div class="fmt f-live">LIVE-ACTION</div>
+</div>
+
+<div class="ep" data-era="V" data-pri="e" data-id="176" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">176</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">REB S2 (E1-22)</span><span class="ep-ttl">Star Wars Rebels — Temporada 2</span><span class="ep-yr">4 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Lothal · Seelos · Malachor</div>
+    <div class="ep-evt">Ahsoka y el Ghost se asocian con Rex. El enfrentamiento con Vader. Malachor.</div>
+  </div><div class="fmt f-anim">ANIMADA</div>
+</div>
+
+<div class="fase" data-era="V"><span class="fase-ttl">3 BBY · El Aumento de Tensiones · Thrawn</span><span class="fase-yrs">3 BBY</span></div>
+
+<div class="ep" data-era="V" data-pri="e" data-id="177" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">177</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">AND S2 (E4-6)</span><span class="ep-ttl">Andor T2 · "Ever Been to Ghorman?"</span><span class="ep-yr">3 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Coruscant · Ghorman</div>
+    <div class="ep-evt">La ISB consolida el control. Alusión al antiguo "Tarkin Massacre" de 19 BBY en Ghorman.</div>
+  </div><div class="fmt f-live">LIVE-ACTION</div>
+</div>
+
+<div class="ep" data-era="V" data-pri="e" data-id="178" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">178</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">REB S3 (E1-17)</span><span class="ep-ttl">Star Wars Rebels — T3 primera mitad</span><span class="ep-yr">3 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Atollon · Lothal</div>
+    <div class="ep-evt">El Gran Almirante Thrawn asume el mando de la Séptima Flota. La amenaza más inteligente.</div>
+  </div><div class="fmt f-anim">ANIMADA</div>
+</div>
+
+<div class="fase" data-era="V"><span class="fase-ttl">2 BBY · La Masacre de Ghorman · La Alianza Rebelde</span><span class="fase-yrs">2 BBY</span></div>
+
+<div class="ep" data-era="V" data-pri="e" data-id="179" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">179</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">AND S2 (E7-9)</span><span class="ep-ttl">Andor T2 · "Messenger / Welcome..."</span><span class="ep-yr">2 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Ghorman · Coruscant</div>
+    <div class="ep-evt">Cassian y Bix se infiltran en Ghorman. El Imperio comete la masacre. Mon Mothma renuncia al Senado.</div>
+  </div><div class="fmt f-live">LIVE-ACTION</div>
+</div>
+
+<div class="ep" data-era="V" data-pri="i" data-id="180" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">180</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">REB S3E9</span><span class="ep-ttl">"Ghosts of Geonosis"</span><span class="ep-yr">2 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Geonosis</div>
+    <div class="ep-evt">Saw Gerrera descubre la purga planetaria imperial de Geonosis. Los secretos de la Estrella de la Muerte.</div>
+  </div><div class="fmt f-anim">ANIMADA</div>
+</div>
+
+<div class="ep" data-era="V" data-pri="e" data-id="181" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">181</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">REB S3E18</span><span class="ep-ttl">"Secret Cargo"</span><span class="ep-yr">2 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Coruscant · Dantooine</div>
+    <div class="ep-evt">Mon Mothma huye de Coruscant con el Ghost. La Alianza Rebelde se funda oficialmente en Dantooine.</div>
+  </div><div class="fmt f-anim">ANIMADA</div>
+</div>
+
+<div class="ep" data-era="V" data-pri="e" data-id="182" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">182</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">REB S3 (E19-22)</span><span class="ep-ttl">Rebels T3 · "Zero Hour"</span><span class="ep-yr">2 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Atollon</div>
+    <div class="ep-evt">Thrawn destruye la base Chopper. Los sobrevivientes escapan a Yavin 4.</div>
+  </div><div class="fmt f-anim">ANIMADA</div>
+</div>
+
+<div class="fase" data-era="V"><span class="fase-ttl">1 BBY – 0 BBY · El Destino Final · El Nexo a Scarif</span><span class="fase-yrs">1 BBY – 0 BBY</span></div>
+
+<div class="ep" data-era="V" data-pri="e" data-id="183" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">183</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">AND S2 (E10-12)</span><span class="ep-ttl">Andor T2 · "Jedha, Kyber, Erso"</span><span class="ep-yr">1 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Yavin 4 · Jedha</div>
+    <div class="ep-evt">Cassian consolidado como agente de inteligencia. Thrawn es exiliado por los Purrgil. Conexión directa con Rogue One.</div>
+  </div><div class="fmt f-live">LIVE-ACTION</div>
+</div>
+
+<div class="ep" data-era="V" data-pri="e" data-id="184" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">184</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">REB S4 (E1-15)</span><span class="ep-ttl">Star Wars Rebels — Temporada 4</span><span class="ep-yr">1 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Lothal</div>
+    <div class="ep-evt">Sacrificio de Kanan Jarrus. Liberación de Lothal. Ezra Bridger y Thrawn desaparecen en el hiperespacio.</div>
+  </div><div class="fmt f-anim">ANIMADA</div>
+</div>
+
+<div class="ep" data-era="V" data-pri="e" data-id="185" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">185</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">RO</span><span class="ep-ttl">Rogue One: A Star Wars Story</span><span class="ep-yr">0 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Jedha · Scarif</div>
+    <div class="ep-evt">Obtención final y transmisión de los planos de la Estrella de la Muerte. El sacrificio que hace posible todo lo que viene.</div>
+  </div><div class="fmt f-film">PELÍCULA</div>
+</div>
+</div><!-- /era V -->
+
+<!-- ══════════════════════════════════════════
+     ERA VI · LA TRILOGÍA ORIGINAL
+══════════════════════════════════════════ -->
+<div class="era" data-era="VI">
+<div class="era-hdr">
+  <div class="era-lbl">Era VI · 0 ABY a 4 ABY</div>
+  <div class="era-ttl">La Trilogía Original</div>
+  <div class="era-yrs">0 ABY – 4 ABY</div>
+  <div class="era-dsc">La guerra civil galáctica. Un granjero que se convierte en Jedi. Un Imperio que cae desde adentro.</div>
+</div>
+<div class="fase" data-era="VI"><span class="fase-ttl">La Guerra Galáctica</span><span class="fase-yrs">0 – 4 ABY</span></div>
+<div class="arco" data-era="VI"><span class="arco-ttl">La Trilogía de Skywalker · Actos I–III</span></div>
+
+<div class="ep" data-era="VI" data-pri="e" data-id="186" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">186</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">EP IV</span><span class="ep-ttl">Una Nueva Esperanza</span><span class="ep-yr">0 ABY</span></div>
+    <div class="ep-planet"><span>⬡</span>Tatooine · Yavin 4</div>
+    <div class="ep-evt">Luke Skywalker. Han Solo. La Princesa Leia. La Estrella de la Muerte. La Batalla de Yavin. El momento que lo inició todo.</div>
+  </div><div class="fmt f-film">PELÍCULA</div>
+</div>
+
+<div class="ep" data-era="VI" data-pri="e" data-id="187" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">187</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">EP V</span><span class="ep-ttl">El Imperio Contraataca</span><span class="ep-yr">3 ABY</span></div>
+    <div class="ep-planet"><span>⬡</span>Hoth · Dagobah · Bespin</div>
+    <div class="ep-evt">Yoda. Dagobah. "No. Yo soy tu padre." La revelación que redefinió el cine popular.</div>
+  </div><div class="fmt f-film">PELÍCULA</div>
+</div>
+
+<div class="ep" data-era="VI" data-pri="e" data-id="188" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">188</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">EP VI</span><span class="ep-ttl">El Retorno del Jedi</span><span class="ep-yr">4 ABY</span></div>
+    <div class="ep-planet"><span>⬡</span>Tatooine · Endor</div>
+    <div class="ep-evt">La redención de Anakin Skywalker. La caída del Emperador. El fin de la guerra. Anakin vuelve a ser Anakin.</div>
+  </div><div class="fmt f-film">PELÍCULA</div>
+</div>
+</div><!-- /era VI -->
+
+<!-- ══════════════════════════════════════════
+     ERA VII · LA NUEVA REPÚBLICA
+══════════════════════════════════════════ -->
+<div class="era" data-era="VII">
+<div class="era-hdr">
+  <div class="era-lbl">Era VII · 9 ABY a 12 ABY</div>
+  <div class="era-ttl">La Nueva República · El Arco Thrawn</div>
+  <div class="era-yrs">9 ABY – 12 ABY</div>
+  <div class="era-dsc">La democracia intenta renacer. En el Outer Rim, un mandaloriano y un niño construyen algo parecido a una familia. Thrawn regresa.</div>
+</div>
+
+<div class="fase" data-era="VII"><span class="fase-ttl">Acto I · Renacimiento Mandaloriano</span><span class="fase-yrs">9 ABY</span></div>
+<div class="arco" data-era="VII"><span class="arco-ttl">The Mandalorian T1 · El Niño de 50 Años</span></div>
+
+<div class="ep" data-era="VII" data-pri="e" data-id="189" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">189</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">MAND S1 (E1-8)</span><span class="ep-ttl">The Mandalorian — Temporada 1</span><span class="ep-yr">9 ABY</span></div>
+    <div class="ep-planet"><span>⬡</span>Nevarro · Arvala-7</div>
+    <div class="ep-evt">Din Djarin localiza y protege al infante Grogu. Un trabajo sencillo que cambia todo.</div>
+  </div><div class="fmt f-live">LIVE-ACTION</div>
+</div>
+
+<div class="ep" data-era="VII" data-pri="e" data-id="190" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">190</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">MAND S2 (E1-4)</span><span class="ep-ttl">The Mandalorian T2 · Primera mitad</span><span class="ep-yr">9 ABY</span></div>
+    <div class="ep-planet"><span>⬡</span>Nevarro · Trask</div>
+    <div class="ep-evt">Din Djarin busca a otros mandalorianos y Jedi para encontrar el hogar de Grogu.</div>
+  </div><div class="fmt f-live">LIVE-ACTION</div>
+</div>
+
+<div class="note note-o" data-era="VII">▲ Insertar antes de Mando T2E5 "The Jedi" — Tales of the Empire Ep.3 "Path of Hate": Morgan Elsbeth masacra a la Embajadora Nadura en Calodan. El preámbulo directo a la llegada de Ahsoka.</div>
+
+<div class="ep" data-era="VII" data-pri="i" data-id="191" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">191</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TotE S1E3</span><span class="ep-ttl">"Path of Hate" (Morgan Elsbeth)</span><span class="ep-yr">9 ABY</span></div>
+    <div class="ep-planet"><span>⬡</span>Corvus (Calodan)</div>
+    <div class="ep-evt">Morgan Elsbeth masacra a la Embajadora Nadura y sus escoltas. Incendia los bosques de Corvus. Preámbulo de Mando S2E5.</div>
+    <div class="ep-note">⟶ Ver antes de Mando T2E5 "The Jedi"</div>
+  </div><div class="fmt f-short">ANTOLOGÍA</div>
+</div>
+
+<div class="ep" data-era="VII" data-pri="e" data-id="192" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">192</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">MAND S2 (E5-8)</span><span class="ep-ttl">The Mandalorian T2 · Segunda mitad</span><span class="ep-yr">9 ABY</span></div>
+    <div class="ep-planet"><span>⬡</span>Corvus · Tython</div>
+    <div class="ep-evt">Ahsoka Tano interroga a Morgan Elsbeth. Tython. La llegada de Luke Skywalker. El adiós de Grogu.</div>
+  </div><div class="fmt f-live">LIVE-ACTION</div>
+</div>
+
+<div class="fase" data-era="VII"><span class="fase-ttl">Acto II · Caos del Outer Rim</span><span class="fase-yrs">9 ABY</span></div>
+
+<div class="ep" data-era="VII" data-pri="e" data-id="193" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">193</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">BoBF S1 (E1-7)</span><span class="ep-ttl">The Book of Boba Fett — Temporada 1</span><span class="ep-yr">9 ABY</span></div>
+    <div class="ep-planet"><span>⬡</span>Tatooine</div>
+    <div class="ep-evt">El hombre que sobrevivió el Sarlacc quiere construir un legado. Eps. 5-7 especialmente importantes — contienen el arco completo de Din Djarin.</div>
+  </div><div class="fmt f-live">LIVE-ACTION</div>
+</div>
+
+<div class="fase" data-era="VII"><span class="fase-ttl">Acto III · Reunificación · Thrawn</span><span class="fase-yrs">9 ABY</span></div>
+
+<div class="ep" data-era="VII" data-pri="e" data-id="194" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">194</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">MAND S3 (E1-8)</span><span class="ep-ttl">The Mandalorian — Temporada 3</span><span class="ep-yr">9 ABY</span></div>
+    <div class="ep-planet"><span>⬡</span>Mandalore · Nevarro</div>
+    <div class="ep-evt">Purificación de Din Djarin. Bo-Katan unifica a los clanes. La reconstrucción de Mandalore.</div>
+  </div><div class="fmt f-live">LIVE-ACTION</div>
+</div>
+
+<div class="ep" data-era="VII" data-pri="e" data-id="195" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">195</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">AHSOKA S1 (E1-8)</span><span class="ep-ttl">Ahsoka — Temporada 1</span><span class="ep-yr">9 ABY</span></div>
+    <div class="ep-planet"><span>⬡</span>Lothal · Peridea</div>
+    <div class="ep-evt">Búsqueda de Thrawn en otra galaxia. El reencuentro de Ahsoka con Sabine y Ezra. Thrawn regresa del exilio espacial.</div>
+  </div><div class="fmt f-live">LIVE-ACTION</div>
+</div>
+
+<div class="note note-g" data-era="VII">▲ Después de Ahsoka — Tales of the Empire Eps. 1-2 (Morgan Elsbeth): ver como flashback. Ya conocés a Morgan; ahora ves cómo construyó su poder Imperial. Mayor impacto emocional.</div>
+
+<div class="ep" data-era="VII" data-pri="i" data-id="195b" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">195b</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">TotE S1E1-E2</span><span class="ep-ttl">Tales of the Empire — Morgan Elsbeth (Flashback)</span><span class="ep-yr">Flashback ~19–9 BBY</span></div>
+    <div class="ep-planet"><span>⬡</span>Dathomir · Lothal</div>
+    <div class="ep-evt">Cómo una sobreviviente de Dathomir construyó un pequeño imperio. Ver como flashback narrativo tras Ahsoka T1.</div>
+    <div class="ep-note">⟶ Ver tras Ahsoka T1</div>
+  </div><div class="fmt f-short">ANTOLOGÍA</div>
+</div>
+
+<div class="fase" data-era="VII"><span class="fase-ttl">Acto IV · Ecos y Clímax</span><span class="fase-yrs">9–12 ABY</span></div>
+
+<div class="ep" data-era="VII" data-pri="i" data-id="196" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">196</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">SC S1 (E1-8)</span><span class="ep-ttl">Skeleton Crew — Temporada 1</span><span class="ep-yr">9 ABY</span></div>
+    <div class="ep-planet"><span>⬡</span>Outer Rim</div>
+    <div class="ep-evt">Cuatro niños descubren una nave espacial y se alejan de casa accidentalmente. Una aventura familiar en el universo más oscuro.</div>
+  </div><div class="fmt f-live">LIVE-ACTION</div>
+</div>
+
+<div class="ep" data-era="VII" data-pri="e" data-id="197" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">197</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">M&G</span><span class="ep-ttl">The Mandalorian and Grogu</span><span class="ep-yr">~12 ABY</span></div>
+    <div class="ep-planet"><span>⬡</span>Shakari · Nal Hutta · Nevarro</div>
+    <div class="ep-evt">Din Djarin y Grogu como contratistas de la Nueva República. La Coronel Ward. Rotta el Hutt. La hegemonía Hutt llega a su fin.</div>
+  </div><div class="fmt f-film">PELÍCULA</div>
+</div>
+</div><!-- /era VII -->
+
+<!-- ══════════════════════════════════════════
+     ERA VIII · LA PRIMERA ORDEN
+══════════════════════════════════════════ -->
+<div class="era" data-era="VIII">
+<div class="era-hdr">
+  <div class="era-lbl">Era VIII · 33 ABY a 35 ABY</div>
+  <div class="era-ttl">La Primera Orden</div>
+  <div class="era-yrs">33 ABY – 35 ABY</div>
+  <div class="era-dsc">Treinta años después. El Imperio nunca realmente desapareció — solo esperó en las Regiones Desconocidas.</div>
+</div>
+
+<div class="fase" data-era="VIII"><span class="fase-ttl">El Surgimiento · La Guerra Relámpago</span><span class="fase-yrs">33–35 ABY</span></div>
+<div class="arco" data-era="VIII"><span class="arco-ttl">Star Wars Resistance · El Espionaje de la Primera Orden</span></div>
+
+<div class="ep" data-era="VIII" data-pri="i" data-id="198" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">198</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">RES S1 (E1-19)</span><span class="ep-ttl">Star Wars Resistance — T1 Eps. 1-19</span><span class="ep-yr">33–34 ABY</span></div>
+    <div class="ep-planet"><span>⬡</span>Castilon</div>
+    <div class="ep-evt">Kazuda Xiono infiltrado en una estación de combustible. La Primera Orden se mueve en las sombras antes de Ep. VII.</div>
+  </div><div class="fmt f-anim">ANIMADA</div>
+</div>
+
+<div class="split" data-era="VIII">
+  <div class="split-ttl">⚡ CORTE DE RESISTANCE — VER SOLO EPS. 1-19 AQUÍ</div>
+  <div class="split-body">Los eps. 20-21 de T1 transcurren durante y después de El Despertar de la Fuerza. Reservarlos para después de Episodio VII.</div>
+</div>
+
+<div class="arco" data-era="VIII"><span class="arco-ttl">La Trilogía de la Secuela</span></div>
+
+<div class="ep" data-era="VIII" data-pri="e" data-id="199" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">199</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">EP VII</span><span class="ep-ttl">El Despertar de la Fuerza</span><span class="ep-yr">34 ABY</span></div>
+    <div class="ep-planet"><span>⬡</span>Jakku · Takodana · Starkiller</div>
+    <div class="ep-evt">Rey. Finn. Kylo Ren. Han Solo treinta años después. La destrucción de la República. La Fuerza despertando.</div>
+  </div><div class="fmt f-film">PELÍCULA</div>
+</div>
+
+<div class="ep" data-era="VIII" data-pri="i" data-id="198b" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">198b</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">RES S1 (E20-21)</span><span class="ep-ttl">Resistance T1 — Eps. 20-21</span><span class="ep-yr">34 ABY</span></div>
+    <div class="ep-planet"><span>⬡</span>Castilon</div>
+    <div class="ep-evt">Ver AQUÍ, después de Ep. VII. Estos episodios transcurren durante y justo después de El Despertar de la Fuerza.</div>
+    <div class="ep-note">⟶ Ver tras Episodio VII</div>
+  </div><div class="fmt f-anim">ANIMADA</div>
+</div>
+
+<div class="ep" data-era="VIII" data-pri="e" data-id="200" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">200</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">EP VIII</span><span class="ep-ttl">Los Últimos Jedi</span><span class="ep-yr">34 ABY</span></div>
+    <div class="ep-planet"><span>⬡</span>D'Qar · Crait</div>
+    <div class="ep-evt">Luke Skywalker al final de su vida. Rey y Kylo Ren conectados. El sacrificio de Luke. La Fuerza reimaginada.</div>
+  </div><div class="fmt f-film">PELÍCULA</div>
+</div>
+
+<div class="ep" data-era="VIII" data-pri="i" data-id="200b" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">200b</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pi">IMPORTANTE</span><span class="ep-code">RES S2 (E1-19)</span><span class="ep-ttl">Star Wars Resistance — Temporada 2</span><span class="ep-yr">34–35 ABY</span></div>
+    <div class="ep-planet"><span>⬡</span>Castilon · Espacio</div>
+    <div class="ep-evt">Kazuda y los suyos huyen de la Primera Orden durante los eventos de Ep. VIII.</div>
+  </div><div class="fmt f-anim">ANIMADA</div>
+</div>
+
+<div class="ep" data-era="VIII" data-pri="e" data-id="201" onclick="tog(this)">
+  <div class="chk"><div class="dot"></div></div><div class="ep-id">201</div>
+  <div class="ep-body">
+    <div class="ep-row1"><span class="pri pe">ESENCIAL</span><span class="ep-code">EP IX</span><span class="ep-ttl">El Ascenso de Skywalker</span><span class="ep-yr">35 ABY</span></div>
+    <div class="ep-planet"><span>⬡</span>Exegol</div>
+    <div class="ep-evt">El Palpatine que nunca murió. Rey frente a su legado. El fin del arco Skywalker — el punto final de la saga de nueve episodios.</div>
+  </div><div class="fmt f-film">PELÍCULA</div>
+</div>
+</div><!-- /era VIII -->
+
+</div><!-- /wrap -->
+
+<footer class="ftr">
+  <div class="ftr-force">May the Force be with you ✦</div>
+  <div>v8 · Junio 2026 · Era → Fase → Arco → Episodio · 202 entradas · Base de datos transmedia</div>
+  <div style="margin-top:5px;color:rgba(201,168,76,.18);">StarWars.com · Lucasfilm · Wookieepedia · Análisis transmedia · Generado con Claude · Anthropic</div>
+  <div style="margin-top:9px;color:rgba(201,168,76,.22);font-size:.56rem;">— En una galaxia muy, muy lejana —</div>
+</footer>
+
+<script>
+// ── TOGGLE EPISODE ──
+function tog(el){
+  el.classList.toggle('done');
+  upd(); save();
+}
+
+// ── TOGGLE NODO CRÍTICO ──
+function toggleNodo(el){
+  const body = el.querySelector('.nodo-body');
+  body.classList.toggle('open');
+}
+
+// ── FILTER ERA ──
+function fEra(era, btn){
+  document.querySelectorAll('.btn').forEach(b=>b.classList.remove('on'));
+  if(btn) btn.classList.add('on');
+  else document.querySelector('.btn.all').classList.add('on');
+  const isAll = era === 'all';
+  document.querySelectorAll('.era').forEach(el=>{
+    el.style.display = (isAll || el.getAttribute('data-era')===era) ? '' : 'none';
+  });
+}
+
+// ── FILTER PRIORITY ──
+function fPri(){
+  const btn = document.querySelector('.btn.esen');
+  const on = btn.classList.contains('on');
+  document.querySelectorAll('.btn').forEach(b=>b.classList.remove('on'));
+  document.querySelector('.btn.all').classList.add('on');
+  document.querySelectorAll('.era').forEach(el=>el.style.display='');
+  if(on){
+    document.querySelectorAll('.ep, .note, .nodo, .stbl, .split, .fase, .arco').forEach(el=>el.classList.remove('hidden'));
+  } else {
+    btn.classList.add('on');
+    document.querySelectorAll('.ep').forEach(el=>{
+      el.classList.toggle('hidden', el.getAttribute('data-pri') !== 'e');
+    });
+    document.querySelectorAll('.note, .stbl, .split').forEach(el=>el.classList.add('hidden'));
+    document.querySelectorAll('.nodo, .fase, .arco').forEach(el=>el.classList.remove('hidden'));
+  }
+}
+
+// ── FILTER SYNC EVENTS ──
+function fSync(){
+  const btn = document.querySelector('.btn.sync');
+  const on = btn.classList.contains('on');
+  document.querySelectorAll('.btn').forEach(b=>b.classList.remove('on'));
+  if(on){
+    document.querySelectorAll('.era').forEach(el=>el.style.display='');
+    document.querySelectorAll('.ep,.fase,.arco,.note,.nodo,.stbl,.split').forEach(el=>el.classList.remove('hidden'));
+  } else {
+    btn.classList.add('on');
+    document.querySelectorAll('.era').forEach(el=>el.style.display='');
+    document.querySelectorAll('.ep,.fase,.arco,.stbl,.split').forEach(el=>el.classList.add('hidden'));
+    document.querySelectorAll('.nodo,.note').forEach(el=>el.classList.remove('hidden'));
+    // Open all nodos
+    document.querySelectorAll('.nodo-body').forEach(b=>b.classList.add('open'));
+  }
+}
+
+// ── PROGRESS ──
+function upd(){
+  const all = document.querySelectorAll('.ep');
+  const done = document.querySelectorAll('.ep.done');
+  const p = all.length ? Math.round(done.length/all.length*100) : 0;
+  document.getElementById('pct').textContent = p+'%';
+  document.getElementById('pf').style.width = p+'%';
+  document.getElementById('pt').textContent = done.length+' / '+all.length+' completados';
+}
+
+function save(){
+  const done=[];
+  document.querySelectorAll('.ep.done').forEach(el=>done.push(el.getAttribute('data-id')));
+  try{localStorage.setItem('swV8',JSON.stringify(done));}catch(e){}
+}
+
+function load(){
+  try{
+    const s=JSON.parse(localStorage.getItem('swV8')||'[]');
+    if(!s.length)return;
+    s.forEach(id=>{
+      const el=document.querySelector('.ep[data-id="'+id+'"]');
+      if(el) el.classList.add('done');
+    });
+    upd();
+  }catch(e){}
+}
+
+load(); upd();
+</script>
+</body>
+</html>
